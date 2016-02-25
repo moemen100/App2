@@ -137,25 +137,25 @@ namespace App2
             i++;
             if (i % 2 == 0)
             {
-                if (call1.Text == "Choose Call")
+                if (call1.Text == "Lammat")
                 {
                     i--; MessageDialog msgbox = new MessageDialog("you didn't enter a lammat for player 1");//,,,,,,,,,,,,,//
                     await msgbox.ShowAsync();
                     return;
                 }
-                if (call2.Text == "Choose Call")
+                if (call2.Text == "Lammat")
                 {
                     i--; MessageDialog msgbox = new MessageDialog("you didn't enter a lammat for player 2");//,,,,,,,,,,,,,//
                     await msgbox.ShowAsync();
                     return;
                 }
-                if (call3.Text == "Choose Call")
+                if (call3.Text == "Lammat")
                 {
                     i--; MessageDialog msgbox = new MessageDialog("you didn't enter a lammat for player 3");//,,,,,,,,,,,,,//
                     await msgbox.ShowAsync();
                     return;
                 }
-                if (call4.Text == "Choose Call")
+                if (call4.Text == "Lammat")
                 {
                     i--;
                     MessageDialog msgbox = new MessageDialog("you didn't enter a lammat for player 4");
@@ -204,7 +204,26 @@ namespace App2
                 score4.Text =  scorei4[gameno].ToString();
                
                 button2.Content = "Start Round";
-               
+                call1.Visibility = Visibility.Visible;
+                call2.Visibility = Visibility.Visible;
+                call3.Visibility = Visibility.Visible;
+                call4.Visibility = Visibility.Visible;
+                lammat1.Visibility = Visibility.Collapsed;
+                lammat2.Visibility = Visibility.Collapsed;
+                lammat3.Visibility = Visibility.Collapsed;
+                lammat4.Visibility = Visibility.Collapsed;
+                image_Lammat1.Visibility = Visibility.Collapsed;
+                image_Lammat2.Visibility = Visibility.Collapsed;
+                image_Lammat3.Visibility = Visibility.Collapsed;
+                image_Lammat4.Visibility = Visibility.Collapsed;
+                image_Call1.Visibility = Visibility.Visible;
+                image_Call2.Visibility = Visibility.Visible;
+                image_Call3.Visibility = Visibility.Visible;
+                image_Call4.Visibility = Visibility.Visible;
+                call1.Text = "Choose Call";
+                call2.Text = "Choose Call";
+                call3.Text = "Choose Call";
+                call4.Text = "Choose Call";
 
             }
             else
@@ -235,6 +254,26 @@ namespace App2
                     return;
                 }
                 button2.Content = "Calculate score";
+                call1.Visibility = Visibility.Collapsed;
+                call2.Visibility = Visibility.Collapsed;
+                call3.Visibility = Visibility.Collapsed;
+                call4.Visibility = Visibility.Collapsed;
+                lammat1.Visibility = Visibility.Visible;
+                lammat2.Visibility = Visibility.Visible;
+                lammat3.Visibility = Visibility.Visible;
+                lammat4.Visibility = Visibility.Visible;
+                image_Call1.Visibility = Visibility.Collapsed;
+                image_Call2.Visibility = Visibility.Collapsed;
+                image_Call3.Visibility = Visibility.Collapsed;
+                image_Call4.Visibility = Visibility.Collapsed;
+                image_Lammat1.Visibility = Visibility.Visible;
+                image_Lammat2.Visibility = Visibility.Visible;
+                image_Lammat3.Visibility = Visibility.Visible;
+                image_Lammat4.Visibility = Visibility.Visible;
+                lammat1.Text = "Lammat";
+                lammat2.Text = "Lammat";
+                lammat2.Text = "Lammat";
+                lammat2.Text = "Lammat";
 
                 iscall1 = false;
                 

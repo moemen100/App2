@@ -28,10 +28,10 @@
         <TextBlock x:Name="call4" HorizontalAlignment="Left" Margin="202,436,0,165" TextWrapping="Wrap" Text="Choose Call" Width="84" FontSize="16"/>
 
         <TextBlock x:Name="call2" HorizontalAlignment="Left" Margin="206,154,0,0" TextWrapping="Wrap" Text="Choose Call" VerticalAlignment="Top" Width="89" Height="39" FontSize="16"/>
-        <TextBlock x:Name="lammat3" HorizontalAlignment="Left" Margin="0,488,0,0" TextWrapping="Wrap" Text="Lammat" VerticalAlignment="Top" Width="71" Height="38" FontSize="16"/>
-        <TextBlock x:Name="lammat4" HorizontalAlignment="Left" Margin="204,487,0,0" TextWrapping="Wrap" Text="Lammat" VerticalAlignment="Top" Width="84" Height="39" FontSize="16"/>
-        <TextBlock x:Name="lammat1" HorizontalAlignment="Left" Margin="10,211,0,0" TextWrapping="Wrap" Text="Lammat" VerticalAlignment="Top" Width="72" Height="40" FontSize="16"/>
-        <TextBlock x:Name="lammat2" HorizontalAlignment="Left" Margin="206,211,0,0" TextWrapping="Wrap" Text="Lammat" VerticalAlignment="Top" Width="82" Height="40" FontSize="16"/>
+        <TextBlock x:Name="lammat3" HorizontalAlignment="Left" Margin="0,488,0,0" TextWrapping="Wrap" Text="Lammat" VerticalAlignment="Top" Width="71" Height="38" FontSize="16" Visibility="Collapsed"/>
+        <TextBlock x:Name="lammat4" HorizontalAlignment="Left" Margin="204,487,0,0" TextWrapping="Wrap" Text="Lammat" VerticalAlignment="Top" Width="84" Height="39" FontSize="16" Visibility="Collapsed"/>
+        <TextBlock x:Name="lammat1" HorizontalAlignment="Left" Margin="10,211,0,0" TextWrapping="Wrap" Text="Lammat" VerticalAlignment="Top" Width="72" Height="40" FontSize="16" Visibility="Collapsed"/>
+        <TextBlock x:Name="lammat2" HorizontalAlignment="Left" Margin="206,211,0,0" TextWrapping="Wrap" Text="Lammat" VerticalAlignment="Top" Width="82" Height="40" FontSize="16" Visibility="Collapsed"/>
         <TextBlock x:Name="score2" HorizontalAlignment="Left" Margin="206,95,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="54" Width="187" FontSize="45.333"/>
         <TextBlock x:Name="score1" HorizontalAlignment="Left" Margin="5,97,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="54" Width="187" FontSize="45.333"/>
         <TextBlock x:Name="score4" HorizontalAlignment="Left" Margin="202,377,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="54" Width="187" FontSize="45.333"/>
@@ -362,13 +362,13 @@
         </ListBox>
        
         <Image x:Name="image_Call1" Height="40" Width="75" Source="Assets/edit.png" Margin="117,151,208,449" PointerPressed="image_Copy_PointerPressed"/>
-        <Image x:Name="image_Lammat1" Height="40" Width="75" Source="Assets/edit.png" Margin="112,198,213,402" PointerPressed="image_Copy_PointerPressed"/>
+        <Image x:Name="image_Lammat1" Height="40" Width="75" Source="Assets/edit.png" Margin="112,198,213,402" PointerPressed="image_Copy_PointerPressed" Visibility="Collapsed"/>
         <Image x:Name="image_Call2" Height="40" Width="75" Source="Assets/edit.png" Margin="325,149,0,451" PointerPressed="image_Copy_1PointerPressed"/>
-        <Image x:Name="image_Lammat2" Height="40" Width="75" Source="Assets/edit.png" Margin="325,198,0,402" PointerPressed="image_Copy_1PointerPressed"/>
+        <Image x:Name="image_Lammat2" Height="40" Width="75" Source="Assets/edit.png" Margin="325,198,0,402" PointerPressed="image_Copy_1PointerPressed" Visibility="Collapsed"/>
         <Image x:Name="image_Call3" Height="40" Width="75" Source="Assets/edit.png" Margin="112,429,213,171" PointerPressed="image_Copy_2PointerPressed"/>
-        <Image x:Name="image_Lammat3" Height="40" Width="75" Source="Assets/edit.png" Margin="112,474,213,126" PointerPressed="image_Copy_2PointerPressed"/>
+        <Image x:Name="image_Lammat3" Height="40" Width="75" Source="Assets/edit.png" Margin="112,474,213,126" PointerPressed="image_Copy_2PointerPressed" Visibility="Collapsed"/>
         <Image x:Name="image_Call4" Height="40" Width="75" Source="Assets/edit.png" Margin="315,431,10,169" PointerPressed="image_Copy_3PointerPressed"/>
-        <Image x:Name="image_Lammat4" Height="40" Width="75" Source="Assets/edit.png" Margin="314,476,11,124" PointerPressed="image_Copy_3PointerPressed"/>
+        <Image x:Name="image_Lammat4" Height="40" Width="75" Source="Assets/edit.png" Margin="314,476,11,124" PointerPressed="image_Copy_3PointerPressed" Visibility="Collapsed"/>
 
 
     </Grid>
