@@ -64,7 +64,7 @@ namespace App2
         private bool dashcall3;
         private bool dashcall4;
         private bool iscall1=true;
-
+        BlankPage1 p = new BlankPage1();
 
 
 
@@ -192,17 +192,20 @@ namespace App2
                 mc.setonlywinner();
                 scorei1[gameno - 1] = int.Parse(score1.Text);
                 scorei1[gameno] = mc.getscore1(scorei1[gameno - 1]);
-                score1.Text = "score=" + scorei1[gameno];
+                score1.Text =  scorei1[gameno].ToString();
                 scorei2[gameno - 1] = int.Parse(score2.Text);
                 scorei2[gameno] = mc.getscore2(scorei2[gameno - 1]);
-                score2.Text = "score=" + scorei2[gameno];
+                score2.Text = scorei2[gameno].ToString();
                 scorei3[gameno - 1] = int.Parse(score3.Text);
                 scorei3[gameno] = mc.getscore3(scorei3[gameno - 1]);
-                score3.Text = "score=" + scorei3[gameno];
+                score3.Text =  scorei3[gameno].ToString();
                 scorei4[gameno - 1] = int.Parse(score4.Text);
                 scorei4[gameno] = mc.getscore1(scorei4[gameno - 1]);
-                score4.Text = "score=" + scorei4[gameno];
-              
+                score4.Text =  scorei4[gameno].ToString();
+               
+                button2.Content = "Start Round";
+               
+
             }
             else
             {
@@ -234,6 +237,7 @@ namespace App2
                 button2.Content = "Calculate score";
 
                 iscall1 = false;
+                
 
             }
 
@@ -683,105 +687,150 @@ namespace App2
 
         private void i46_Click(object sender, RoutedEventArgs e)
         {
-            call1.Text = "DC";
+            if (iscall1)
+                call1.Text = "DC";
+            else
+                lammat1.Text = "DC";
             listBox_1.Visibility = Visibility.Collapsed;
 
         }
 
         private void i47_Click(object sender, RoutedEventArgs e)
         {
-            call1.Text = "0";
+            if (iscall1)
+                call1.Text = "0";
+            else
+                lammat1.Text = "0";
             listBox_1.Visibility = Visibility.Collapsed;
 
         }
 
         private void i48_Click(object sender, RoutedEventArgs e)
         {
-            call1.Text = "1";
+            if (iscall1)
+                call1.Text = "1";
+            else
+                lammat1.Text = "1";
             listBox_1.Visibility = Visibility.Collapsed;
 
         }
 
         private void i49_Click(object sender, RoutedEventArgs e)
         {
-            call1.Text = "2";
+            if (iscall1)
+                call1.Text = "2";
+            else
+                lammat1.Text = "2";
             listBox_1.Visibility = Visibility.Collapsed;
 
         }
 
         private void i50_Click(object sender, RoutedEventArgs e)
         {
-            call1.Text = "3";
+            if (iscall1)
+                call1.Text = "3";
+            else
+                lammat1.Text = "3";
             listBox_1.Visibility = Visibility.Collapsed;
 
         }
 
         private void i51_Click(object sender, RoutedEventArgs e)
         {
-            call1.Text = "4";
+            if (iscall1)
+                call1.Text = "4";
+            else
+                lammat1.Text = "4";
             listBox_1.Visibility = Visibility.Collapsed;
 
         }
 
         private void i52_Click(object sender, RoutedEventArgs e)
         {
-            call1.Text = "5";
+            if (iscall1)
+                call1.Text = "5";
+            else
+                lammat1.Text = "5";
             listBox_1.Visibility = Visibility.Collapsed;
 
         }
 
         private void i53_Click(object sender, RoutedEventArgs e)
         {
-            call1.Text = "6";
+            if (iscall1)
+                call1.Text = "6";
+            else
+                lammat1.Text = "6";
             listBox_1.Visibility = Visibility.Collapsed;
 
         }
 
         private void i54_Click(object sender, RoutedEventArgs e)
         {
-            call1.Text = "7";
+            if (iscall1)
+                call1.Text = "7";
+            else
+                lammat1.Text = "7";
             listBox_1.Visibility = Visibility.Collapsed;
 
         }
 
         private void i55_Click(object sender, RoutedEventArgs e)
         {
-            call1.Text = "8";
+            if (iscall1)
+                call1.Text = "8";
+            else
+                lammat1.Text = "8";
             listBox_1.Visibility = Visibility.Collapsed;
 
         }
 
         private void i56_Click(object sender, RoutedEventArgs e)
         {
-            call1.Text = "9";
+            if (iscall1)
+                call1.Text = "9";
+            else
+                lammat1.Text = "9";
             listBox_1.Visibility = Visibility.Collapsed;
 
         }
 
         private void i57_Click(object sender, RoutedEventArgs e)
         {
-            call1.Text = "10";
+            if (iscall1)
+                call1.Text = "10";
+            else
+                lammat1.Text = "10";
             listBox_1.Visibility = Visibility.Collapsed;
 
         }
 
         private void i58_Click(object sender, RoutedEventArgs e)
         {
-            call1.Text = "11";
+            if (iscall1)
+                call1.Text = "11";
+            else
+                lammat1.Text = "11";
             listBox_1.Visibility = Visibility.Collapsed;
 
         }
 
         private void i59_Click(object sender, RoutedEventArgs e)
         {
-            call1.Text = "12";
+            if (iscall1)
+                call1.Text = "12";
+            else
+                lammat1.Text = "12";
             listBox_1.Visibility = Visibility.Collapsed;
 
         }
 
         private void i60_Click(object sender, RoutedEventArgs e)
         {
-            call1.Text = "13";
+            if (iscall1)
+                call1.Text = "13";
+            else
+                lammat1.Text = "13";
             listBox_1.Visibility = Visibility.Collapsed;
 
 
@@ -789,8 +838,20 @@ namespace App2
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
+            var obj = App.Current as App;
+            obj.gameno = gameno;
+            obj.score1 = scorei1;
+            obj.score2 = scorei2;
+            obj.score3 = scorei3;
+            obj.score4 = scorei4;
             Frame.Navigate(typeof(BlankPage1));
+            
+
+
+
         }
+       
+
 
         private void image_Copy_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
@@ -801,6 +862,7 @@ namespace App2
         private void image_Copy_1PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             listBox_2.Visibility = Visibility.Visible;
+            
         }
         private void image_Copy_2PointerPressed(object sender, PointerRoutedEventArgs e)
         {

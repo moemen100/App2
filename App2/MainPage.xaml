@@ -32,10 +32,10 @@
         <TextBlock x:Name="lammat4" HorizontalAlignment="Left" Margin="204,487,0,0" TextWrapping="Wrap" Text="Lammat" VerticalAlignment="Top" Width="84" Height="39" FontSize="16"/>
         <TextBlock x:Name="lammat1" HorizontalAlignment="Left" Margin="10,211,0,0" TextWrapping="Wrap" Text="Lammat" VerticalAlignment="Top" Width="72" Height="40" FontSize="16"/>
         <TextBlock x:Name="lammat2" HorizontalAlignment="Left" Margin="206,211,0,0" TextWrapping="Wrap" Text="Lammat" VerticalAlignment="Top" Width="82" Height="40" FontSize="16"/>
-        <TextBlock x:Name="score2" HorizontalAlignment="Left" Margin="206,95,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="54" Width="187" FontSize="45.333"/>
-        <TextBlock x:Name="score1" HorizontalAlignment="Left" Margin="5,97,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="54" Width="187" FontSize="45.333"/>
-        <TextBlock x:Name="score4" HorizontalAlignment="Left" Margin="202,377,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="54" Width="187" FontSize="45.333"/>
-        <TextBlock x:Name="score3" HorizontalAlignment="Left" Margin="0,375,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="54" Width="187" FontSize="45.333"/>
+        <TextBlock x:Name="score2" HorizontalAlignment="Left" Margin="206,95,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="54" Width="187" FontSize="45.333"/>
+        <TextBlock x:Name="score1" HorizontalAlignment="Left" Margin="5,97,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="54" Width="187" FontSize="45.333"/>
+        <TextBlock x:Name="score4" HorizontalAlignment="Left" Margin="202,377,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="54" Width="187" FontSize="45.333"/>
+        <TextBlock x:Name="score3" HorizontalAlignment="Left" Margin="0,375,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="54" Width="187" FontSize="45.333"/>
         <TextBlock x:Name="name4" HorizontalAlignment="Left" Margin="202,331,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="54" Width="187" FontSize="32"/>
         <TextBlock x:Name="name3" HorizontalAlignment="Left" Margin="5,331,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="54" Width="187" FontSize="32"/>
         <TextBlock x:Name="name2_Copy" TextWrapping="Wrap" Text="TextBlock" Margin="5,54,235,543" FontSize="32"/>

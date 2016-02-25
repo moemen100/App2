@@ -26,6 +26,8 @@ namespace App2
         {
             this.InitializeComponent();
         }
+       
+
 
         /// <summary>
         /// Invoked when this page is about to be displayed in a Frame.
@@ -35,7 +37,28 @@ namespace App2
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
         }
-
        
+
+        private void listView1_Loaded(object sender, RoutedEventArgs e)
+        {
+            var obj = App.Current as App;           
+            for (int i = 1; i <= obj.gameno; i++)
+            {
+                listView1.Items.Add(obj.score1[i]);
+                listView2.Items.Add(obj.score2[i]);
+                listView3.Items.Add(obj.score3[i]);
+                listView4.Items.Add(obj.score4[i]);
+
+            }
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
+
+
+   
+         
 }

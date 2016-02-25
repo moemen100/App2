@@ -25,12 +25,19 @@ namespace App2
     /// </summary>
     public sealed partial class App : Application
     {
+        public int[] score1;
+        public int[] score2;
+        public int[] score3;
+        public int[] score4;
+        public int gameno;
+
         private TransitionCollection transitions;
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
         /// </summary>
+       
         public App()
         {
             this.InitializeComponent();
