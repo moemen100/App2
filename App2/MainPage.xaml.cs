@@ -58,6 +58,11 @@ namespace App2
         private int[] scorei2 = new int[20];
         private int[] scorei3 = new int[20];
         private int[] scorei4 = new int[20];
+        private int[] calli1 = new int[20];
+        private int[] calli2 = new int[20];
+        private int[] calli3 = new int[20];
+        private int[] calli4 = new int[20];
+        private int gamestate;
         private Majorcal mc;
         private bool dashcall1;
         private bool dashcall2;
@@ -190,6 +195,10 @@ namespace App2
                 mc.setiscall();
                 mc.setrisk();
                 mc.setonlywinner();
+                calli1[gameno] = (int.Parse(call1.Text));
+                calli2[gameno] = (int.Parse(call2.Text));
+                calli3[gameno] = (int.Parse(call3.Text));
+                calli4[gameno] = (int.Parse(call4.Text));
                 scorei1[gameno - 1] = int.Parse(score1.Text);
                 scorei1[gameno] = mc.getscore1(scorei1[gameno - 1]);
                 score1.Text =  scorei1[gameno].ToString();
@@ -204,10 +213,7 @@ namespace App2
                 score4.Text =  scorei4[gameno].ToString();
                
                 button2.Content = "Start Round";
-                call1.Visibility = Visibility.Visible;
-                call2.Visibility = Visibility.Visible;
-                call3.Visibility = Visibility.Visible;
-                call4.Visibility = Visibility.Visible;
+               
                 lammat1.Visibility = Visibility.Collapsed;
                 lammat2.Visibility = Visibility.Collapsed;
                 lammat3.Visibility = Visibility.Collapsed;
@@ -253,11 +259,16 @@ namespace App2
                     await msgbox.ShowAsync();
                     return;
                 }
+                gamestate =  Math.Abs(int.Parse(call1.Text)+ int.Parse(call2.Text)+ int.Parse(call3.Text)+ int.Parse(call4.Text))-13;
+                if(gamestate==0)
+                {
+                    i--;
+                    MessageDialog msgbox = new MessageDialog("Sum of CAlls can't be equal 13");
+                    await msgbox.ShowAsync();
+                    return;
+                }
                 button2.Content = "Calculate score";
-                call1.Visibility = Visibility.Collapsed;
-                call2.Visibility = Visibility.Collapsed;
-                call3.Visibility = Visibility.Collapsed;
-                call4.Visibility = Visibility.Collapsed;
+              
                 lammat1.Visibility = Visibility.Visible;
                 lammat2.Visibility = Visibility.Visible;
                 lammat3.Visibility = Visibility.Visible;
@@ -292,7 +303,7 @@ namespace App2
             listBox_4.Visibility = Visibility.Collapsed;
         }
 
-       
+     
         private void i2_Click(object sender, RoutedEventArgs e)
         {
             if (iscall1)
@@ -912,6 +923,67 @@ namespace App2
             listBox_4.Visibility = Visibility.Visible;
         }
 
+        private void button3_Click(object sender, RoutedEventArgs e)
+        {if (i > 0 && gameno > 0)
+            {
+                i--;
+                if (i % 2 != 0)
+                {
+                    gameno--;
+                    score1.Text = scorei1[gameno].ToString();
+                    score2.Text = scorei2[gameno].ToString();
+                    score3.Text = scorei3[gameno].ToString();
+                    score4.Text = scorei4[gameno].ToString();
+                    call1.Text = calli1[gameno+1].ToString();
+                    call2.Text = calli2[gameno+1].ToString();
+                    call3.Text = calli3[gameno+1].ToString();
+                    call4.Text = calli4[gameno+1].ToString();
+                    image_Call1.Visibility = Visibility.Collapsed;
+                    image_Call2.Visibility = Visibility.Collapsed;
+                    image_Call3.Visibility = Visibility.Collapsed;
+                    image_Call4.Visibility = Visibility.Collapsed;
+                    lammat1.Visibility = Visibility.Visible;
+                    lammat2.Visibility = Visibility.Visible;
+                    lammat3.Visibility = Visibility.Visible;
+                    lammat4.Visibility = Visibility.Visible;
+                    image_Lammat1.Visibility = Visibility.Visible;
+                    image_Lammat2.Visibility = Visibility.Visible;
+                    image_Lammat3.Visibility = Visibility.Visible;
+                    image_Lammat4.Visibility = Visibility.Visible;
+                    lammat1.Text = "Lammat";
+                    lammat2.Text = "Lammat";
+                    lammat3.Text = "Lammat";
+                    lammat4.Text = "Lammat";
+                    button2.Content = "Calculate Score";
+                    
+                }
+                else
+                {
+                    call1.Visibility = Visibility.Visible;
+                    call2.Visibility = Visibility.Visible;
+                    call3.Visibility = Visibility.Visible;
+                    call4.Visibility = Visibility.Visible;
+                    image_Call1.Visibility = Visibility.Visible;
+                    image_Call2.Visibility = Visibility.Visible;
+                    image_Call3.Visibility = Visibility.Visible;
+                    image_Call4.Visibility = Visibility.Visible;
+                    lammat1.Visibility = Visibility.Collapsed;
+                    lammat2.Visibility = Visibility.Collapsed;
+                    lammat3.Visibility = Visibility.Collapsed;
+                    lammat4.Visibility = Visibility.Collapsed;
+                    image_Lammat1.Visibility = Visibility.Collapsed;
+                    image_Lammat2.Visibility = Visibility.Collapsed;
+                    image_Lammat3.Visibility = Visibility.Collapsed;
+                    image_Lammat4.Visibility = Visibility.Collapsed;
+                    call1.Text = "Choose Call";
+                    call2.Text = "Choose Call";
+                    call3.Text = "Choose Call";
+                    call4.Text = "Choose Call";
+                    button2.Content = "Start Round";
+
+                }
+            }
+        }
     }
 
 }

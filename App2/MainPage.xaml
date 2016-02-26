@@ -22,7 +22,7 @@
         <Button x:Name="addname" Content="Add name" HorizontalAlignment="Left" Margin="280,0,0,0" VerticalAlignment="Top" Click="button_Click"/>
         <Button x:Name="button1" Content="Show Table" HorizontalAlignment="Left" Margin="280,592,0,-10" VerticalAlignment="Stretch" Click="button1_Click"/>
         <Button x:Name="button2" Content="Start Round" HorizontalAlignment="Left" Margin="10,592,0,-9" VerticalAlignment="Top" Click="button2_Click"/>
-        <Button x:Name="button3" Content="Button" HorizontalAlignment="Left" Margin="152,592,0,-9" VerticalAlignment="Top"/>
+        <Button x:Name="button3" Content="Button" HorizontalAlignment="Left" Margin="152,592,0,-9" VerticalAlignment="Top" Click="button3_Click"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="5,10,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="233"/>
         <TextBlock x:Name="call3" HorizontalAlignment="Left" Margin="0,434,0,0" TextWrapping="Wrap" Text="Choose Call" VerticalAlignment="Top" Width="107" Height="41" FontSize="16"/>
         <TextBlock x:Name="call4" HorizontalAlignment="Left" Margin="202,436,0,165" TextWrapping="Wrap" Text="Choose Call" Width="84" FontSize="16"/>
