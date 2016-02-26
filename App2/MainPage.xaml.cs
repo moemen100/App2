@@ -69,6 +69,7 @@ namespace App2
         private bool dashcall3;
         private bool dashcall4;
         private bool iscall1=true;
+        private bool namesadded = false;
         BlankPage1 p = new BlankPage1();
 
 
@@ -130,165 +131,199 @@ namespace App2
             }
             if (i >= 4)
             {
+                namesadded = true;
                 i = 0;
                 addname.Visibility = Visibility.Collapsed;
                 textBox.Visibility = Visibility.Collapsed;
+                gamenumber.Visibility = Visibility.Visible;
+                gamenumber.Text = "Games played=" + gameno.ToString();
             }
         }
 
         private async void button2_Click(object sender, RoutedEventArgs e)
         {
-            
-            i++;
-            if (i % 2 == 0)
-            {
-                if (call1.Text == "Lammat")
+            if(namesadded)
+            {  i++;
+                if (i % 2 == 0)
                 {
-                    i--; MessageDialog msgbox = new MessageDialog("you didn't enter a lammat for player 1");//,,,,,,,,,,,,,//
-                    await msgbox.ShowAsync();
-                    return;
+                    if (call1.Text == "Lammat")
+                    {
+                        i--; MessageDialog msgbox = new MessageDialog("you didn't enter a lammat for player 1");//,,,,,,,,,,,,,//
+                        await msgbox.ShowAsync();
+                        return;
+                    }
+                    if (call2.Text == "Lammat")
+                    {
+                        i--; MessageDialog msgbox = new MessageDialog("you didn't enter a lammat for player 2");//,,,,,,,,,,,,,//
+                        await msgbox.ShowAsync();
+                        return;
+                    }
+                    if (call3.Text == "Lammat")
+                    {
+                        i--; MessageDialog msgbox = new MessageDialog("you didn't enter a lammat for player 3");//,,,,,,,,,,,,,//
+                        await msgbox.ShowAsync();
+                        return;
+                    }
+                    if (call4.Text == "Lammat")
+                    {
+                        i--;
+                        MessageDialog msgbox = new MessageDialog("you didn't enter a lammat for player 4");
+                        await msgbox.ShowAsync();
+                        return;
+                    }
+                    gameno++;
+                    if (call1.Text == "DC")
+                    {
+                        dashcall1 = true;
+                        call1.Text = "0";
+                    }
+                    else dashcall1 = false;
+                    if (call2.Text == "DC")
+                    { dashcall2 = true; call2.Text = "0"; }
+                    else dashcall2 = false;
+                    if (call3.Text == "DC")
+                    { dashcall3 = true; call3.Text = "0"; }
+                    else dashcall3 = false;
+                    if (call4.Text == "DC")
+                    { dashcall4 = true; call4.Text = "0"; }
+                    else dashcall4 = false;
+                    mc = new Majorcal(int.Parse(call1.Text), int.Parse(lammat1.Text), dashcall1, int.Parse(call2.Text), int.Parse(lammat2.Text), dashcall2, int.Parse(call3.Text), int.Parse(lammat3.Text), dashcall3, int.Parse(call4.Text), int.Parse(lammat4.Text), dashcall4);
+                    if (mc.isError())
+                    {
+                        MessageDialog msgbox = new MessageDialog("Lammat msh mazpota ");//,,,,,,,,,,,,,//
+                        await msgbox.ShowAsync();
+                        gameno--;
+                        i--;
+                        return;
+                    }
+
+                    mc.setiscall();
+                    mc.setrisk();
+                    mc.setonlywinner();
+                    calli1[gameno] = (int.Parse(call1.Text));
+                    calli2[gameno] = (int.Parse(call2.Text));
+                    calli3[gameno] = (int.Parse(call3.Text));
+                    calli4[gameno] = (int.Parse(call4.Text));
+                    scorei1[gameno - 1] = int.Parse(score1.Text);
+                    scorei1[gameno] = mc.getscore1(scorei1[gameno - 1]);
+                    score1.Text = scorei1[gameno].ToString();
+                    scorei2[gameno - 1] = int.Parse(score2.Text);
+                    scorei2[gameno] = mc.getscore2(scorei2[gameno - 1]);
+                    score2.Text = scorei2[gameno].ToString();
+                    scorei3[gameno - 1] = int.Parse(score3.Text);
+                    scorei3[gameno] = mc.getscore3(scorei3[gameno - 1]);
+                    score3.Text = scorei3[gameno].ToString();
+                    scorei4[gameno - 1] = int.Parse(score4.Text);
+                    scorei4[gameno] = mc.getscore1(scorei4[gameno - 1]);
+                    score4.Text = scorei4[gameno].ToString();
+
+                    button2.Content = "Start Round";
+
+                    lammat1.Visibility = Visibility.Collapsed;
+                    lammat2.Visibility = Visibility.Collapsed;
+                    lammat3.Visibility = Visibility.Collapsed;
+                    lammat4.Visibility = Visibility.Collapsed;
+                    image_Lammat1.Visibility = Visibility.Collapsed;
+                    image_Lammat2.Visibility = Visibility.Collapsed;
+                    image_Lammat3.Visibility = Visibility.Collapsed;
+                    image_Lammat4.Visibility = Visibility.Collapsed;
+                    image_Call1.Visibility = Visibility.Visible;
+                    image_Call2.Visibility = Visibility.Visible;
+                    image_Call3.Visibility = Visibility.Visible;
+                    image_Call4.Visibility = Visibility.Visible;
+                    call1.Text = "Choose Call";
+                    call2.Text = "Choose Call";
+                    call3.Text = "Choose Call";
+                    call4.Text = "Choose Call";
+                    gamest.Visibility = Visibility.Collapsed;
+                    gamenumber.Visibility = Visibility.Visible;
+                    gamenumber.Text = "Games played=" + gameno.ToString();
+
                 }
-                if (call2.Text == "Lammat")
+                else
                 {
-                    i--; MessageDialog msgbox = new MessageDialog("you didn't enter a lammat for player 2");//,,,,,,,,,,,,,//
-                    await msgbox.ShowAsync();
-                    return;
+                    if (call1.Text == "Choose Call")
+                    {
+                        i--; MessageDialog msgbox = new MessageDialog("you didn't enter a call for player 1");//,,,,,,,,,,,,,//
+                        await msgbox.ShowAsync();
+                        return;
+                    }
+                    if (call2.Text == "Choose Call")
+                    {
+                        i--; MessageDialog msgbox = new MessageDialog("you didn't enter a call for player 2");//,,,,,,,,,,,,,//
+                        await msgbox.ShowAsync();
+                        return;
+                    }
+                    if (call3.Text == "Choose Call")
+                    {
+                        i--; MessageDialog msgbox = new MessageDialog("you didn't enter a call for player 3");//,,,,,,,,,,,,,//
+                        await msgbox.ShowAsync();
+                        return;
+                    }
+                    if (call4.Text == "Choose Call")
+                    {
+                        i--;
+                        MessageDialog msgbox = new MessageDialog("you didn't enter a call for player 4");
+                        await msgbox.ShowAsync();
+                        return;
+                    }
+                    if (call1.Text == "DC")
+                    { calli1[gameno + 1] = 0; }
+                    else
+                        calli1[gameno + 1] = int.Parse(call1.Text);
+                    if (call2.Text == "DC")
+                    { calli2[gameno + 1] = 0; }
+                    else
+                        calli2[gameno + 1] = int.Parse(call2.Text);
+
+                    if (call3.Text == "DC")
+                    { calli3[gameno + 1] = 0; }
+                    else
+                        calli3[gameno + 1] = int.Parse(call3.Text);
+                    if (call4.Text == "DC")
+                    { calli4[gameno + 1] = 0; }
+                    else
+                        calli4[gameno + 1] = int.Parse(call4.Text);
+                    gamestate = Math.Abs(calli1[gameno + 1] + calli2[gameno + 1] + calli3[gameno + 1] + calli4[gameno + 1]) - 13;
+                    if (gamestate == 0)
+                    {
+                        i--;
+                        MessageDialog msgbox = new MessageDialog("Sum of CAlls can't be equal 13");
+                        await msgbox.ShowAsync();
+                        return;
+                    }
+                    button2.Content = "Calculate score";
+
+                    lammat1.Visibility = Visibility.Visible;
+                    lammat2.Visibility = Visibility.Visible;
+                    lammat3.Visibility = Visibility.Visible;
+                    lammat4.Visibility = Visibility.Visible;
+                    image_Call1.Visibility = Visibility.Collapsed;
+                    image_Call2.Visibility = Visibility.Collapsed;
+                    image_Call3.Visibility = Visibility.Collapsed;
+                    image_Call4.Visibility = Visibility.Collapsed;
+                    image_Lammat1.Visibility = Visibility.Visible;
+                    image_Lammat2.Visibility = Visibility.Visible;
+                    image_Lammat3.Visibility = Visibility.Visible;
+                    image_Lammat4.Visibility = Visibility.Visible;
+                    lammat1.Text = "Lammat";
+                    lammat2.Text = "Lammat";
+                    lammat3.Text = "Lammat";
+                    lammat4.Text = "Lammat";
+                    gamest.Visibility = Visibility.Visible;
+                    if (gamestate > 13)
+                        gamest.Text = "Game is over    " + gamestate.ToString();
+                    if (gamestate < 13)
+                        gamest.Text = "Game is under   " + (gamestate * -1).ToString();
+
+                    iscall1 = false;
                 }
-                if (call3.Text == "Lammat")
-                {
-                    i--; MessageDialog msgbox = new MessageDialog("you didn't enter a lammat for player 3");//,,,,,,,,,,,,,//
-                    await msgbox.ShowAsync();
-                    return;
-                }
-                if (call4.Text == "Lammat")
-                {
-                    i--;
-                    MessageDialog msgbox = new MessageDialog("you didn't enter a lammat for player 4");
-                    await msgbox.ShowAsync();   
-                    return;
-                }
-                gameno++;
-                if (call1.Text == "DC")
-                { dashcall1 = true;
-                    call1.Text = "0";
-                }
-                else dashcall1 = false; 
-                if (call2.Text == "DC")
-                {  dashcall2 = true; call2.Text = "0"; }
-            else dashcall2 = false;
-                if (call3.Text == "DC")
-                {  dashcall3 = true; call3.Text = "0"; }
-            else dashcall3 = false;
-                if (call4.Text == "DC")
-                { dashcall4 = true; call4.Text = "0"; }
-                else dashcall4 = false;
-                mc = new Majorcal(int.Parse(call1.Text), int.Parse(lammat1.Text), dashcall1, int.Parse(call2.Text), int.Parse(lammat2.Text), dashcall2, int.Parse(call3.Text), int.Parse(lammat3.Text), dashcall3, int.Parse(call4.Text), int.Parse(lammat4.Text), dashcall4);
-                if (mc.isError())
-                {
-                    MessageDialog msgbox = new MessageDialog("Lammat msh mazpota ");//,,,,,,,,,,,,,//
-                    await msgbox.ShowAsync();
-                    gameno--;
-                    i--;
-                    return;
-                }
-                
-                mc.setiscall();
-                mc.setrisk();
-                mc.setonlywinner();
-                calli1[gameno] = (int.Parse(call1.Text));
-                calli2[gameno] = (int.Parse(call2.Text));
-                calli3[gameno] = (int.Parse(call3.Text));
-                calli4[gameno] = (int.Parse(call4.Text));
-                scorei1[gameno - 1] = int.Parse(score1.Text);
-                scorei1[gameno] = mc.getscore1(scorei1[gameno - 1]);
-                score1.Text =  scorei1[gameno].ToString();
-                scorei2[gameno - 1] = int.Parse(score2.Text);
-                scorei2[gameno] = mc.getscore2(scorei2[gameno - 1]);
-                score2.Text = scorei2[gameno].ToString();
-                scorei3[gameno - 1] = int.Parse(score3.Text);
-                scorei3[gameno] = mc.getscore3(scorei3[gameno - 1]);
-                score3.Text =  scorei3[gameno].ToString();
-                scorei4[gameno - 1] = int.Parse(score4.Text);
-                scorei4[gameno] = mc.getscore1(scorei4[gameno - 1]);
-                score4.Text =  scorei4[gameno].ToString();
-               
-                button2.Content = "Start Round";
-               
-                lammat1.Visibility = Visibility.Collapsed;
-                lammat2.Visibility = Visibility.Collapsed;
-                lammat3.Visibility = Visibility.Collapsed;
-                lammat4.Visibility = Visibility.Collapsed;
-                image_Lammat1.Visibility = Visibility.Collapsed;
-                image_Lammat2.Visibility = Visibility.Collapsed;
-                image_Lammat3.Visibility = Visibility.Collapsed;
-                image_Lammat4.Visibility = Visibility.Collapsed;
-                image_Call1.Visibility = Visibility.Visible;
-                image_Call2.Visibility = Visibility.Visible;
-                image_Call3.Visibility = Visibility.Visible;
-                image_Call4.Visibility = Visibility.Visible;
-                call1.Text = "Choose Call";
-                call2.Text = "Choose Call";
-                call3.Text = "Choose Call";
-                call4.Text = "Choose Call";
 
             }
             else
             {
-                if(call1.Text== "Choose Call" )
-                {
-                    i--; MessageDialog msgbox = new MessageDialog("you didn't enter a call for player 1");//,,,,,,,,,,,,,//
-                    await msgbox.ShowAsync();
-                    return;
-                }
-                if ( call2.Text == "Choose Call" )
-                {
-                    i--; MessageDialog msgbox = new MessageDialog("you didn't enter a call for player 2");//,,,,,,,,,,,,,//
-                    await msgbox.ShowAsync();
-                    return;
-                }
-                if ( call3.Text == "Choose Call" )
-                {
-                    i--; MessageDialog msgbox = new MessageDialog("you didn't enter a call for player 3");//,,,,,,,,,,,,,//
-                    await msgbox.ShowAsync();
-                    return;
-                }
-                if ( call4.Text == "Choose Call")
-                {
-                    i--;
-                    MessageDialog msgbox = new MessageDialog("you didn't enter a call for player 4");
-                    await msgbox.ShowAsync();
-                    return;
-                }
-                gamestate =  Math.Abs(int.Parse(call1.Text)+ int.Parse(call2.Text)+ int.Parse(call3.Text)+ int.Parse(call4.Text))-13;
-                if(gamestate==0)
-                {
-                    i--;
-                    MessageDialog msgbox = new MessageDialog("Sum of CAlls can't be equal 13");
-                    await msgbox.ShowAsync();
-                    return;
-                }
-                button2.Content = "Calculate score";
-              
-                lammat1.Visibility = Visibility.Visible;
-                lammat2.Visibility = Visibility.Visible;
-                lammat3.Visibility = Visibility.Visible;
-                lammat4.Visibility = Visibility.Visible;
-                image_Call1.Visibility = Visibility.Collapsed;
-                image_Call2.Visibility = Visibility.Collapsed;
-                image_Call3.Visibility = Visibility.Collapsed;
-                image_Call4.Visibility = Visibility.Collapsed;
-                image_Lammat1.Visibility = Visibility.Visible;
-                image_Lammat2.Visibility = Visibility.Visible;
-                image_Lammat3.Visibility = Visibility.Visible;
-                image_Lammat4.Visibility = Visibility.Visible;
-                lammat1.Text = "Lammat";
-                lammat2.Text = "Lammat";
-                lammat2.Text = "Lammat";
-                lammat2.Text = "Lammat";
-
-                iscall1 = false;
-                
-
+                MessageDialog msgbox = new MessageDialog("you have to add 4 names");
+                await msgbox.ShowAsync();
             }
 
 
@@ -905,22 +940,37 @@ namespace App2
 
         private void image_Copy_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
-
-            listBox_1.Visibility= Visibility.Visible;
+           listBox_1.Visibility= Visibility.Visible;
+            if (!iscall1)
+                i46.Visibility = Visibility.Collapsed;
+            else
+                i46.Visibility = Visibility.Visible;
         }
 
         private void image_Copy_1PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             listBox_2.Visibility = Visibility.Visible;
-            
+            if (!iscall1)
+                i16.Visibility = Visibility.Collapsed;
+            else
+                i16.Visibility = Visibility.Visible;
+
         }
         private void image_Copy_2PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             listBox_3.Visibility = Visibility.Visible;
+            if (!iscall1)
+                i31.Visibility = Visibility.Collapsed;
+            else
+                i31.Visibility = Visibility.Visible;
         }
         private void image_Copy_3PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             listBox_4.Visibility = Visibility.Visible;
+            if (!iscall1)
+                i1.Visibility = Visibility.Collapsed;
+            else
+                i1.Visibility = Visibility.Visible;
         }
 
         private void button3_Click(object sender, RoutedEventArgs e)
@@ -980,9 +1030,14 @@ namespace App2
                     call3.Text = "Choose Call";
                     call4.Text = "Choose Call";
                     button2.Content = "Start Round";
-
+                   
                 }
             }
+        }
+
+        private void textBox_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            textBox.Text = "";
         }
     }
 
