@@ -63,18 +63,16 @@ namespace App2
         private int[] calli3 = new int[20];
         private int[] calli4 = new int[20];
         private int gamestate;
-        private Majorcal mc;
-        private bool dashcall1;
-        private bool dashcall2;
-        private bool dashcall3;
-        private bool dashcall4;
+        private Majorcal mc = new Majorcal(0, 0, false, 0, 0, false, 0, 0, false, 0, 0, false, 0);
+        private bool dashcall1=false;
+        private bool dashcall2=false;
+        private bool dashcall3=false;
+        private bool dashcall4=false;
         private bool iscall1=true;
         private bool namesadded = false;
         BlankPage1 p = new BlankPage1();
-
-
-
-
+        private int sa3ayda = 1;
+        bool sa3ydaholder = false;
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
@@ -146,25 +144,25 @@ namespace App2
             {  i++;
                 if (i % 2 == 0)
                 {
-                    if (call1.Text == "Lammat")
+                    if (lammat1.Text == "Lammat")
                     {
                         i--; MessageDialog msgbox = new MessageDialog("you didn't enter a lammat for player 1");//,,,,,,,,,,,,,//
                         await msgbox.ShowAsync();
                         return;
                     }
-                    if (call2.Text == "Lammat")
+                    if (lammat2.Text == "Lammat")
                     {
                         i--; MessageDialog msgbox = new MessageDialog("you didn't enter a lammat for player 2");//,,,,,,,,,,,,,//
                         await msgbox.ShowAsync();
                         return;
                     }
-                    if (call3.Text == "Lammat")
+                    if (lammat3.Text == "Lammat")
                     {
                         i--; MessageDialog msgbox = new MessageDialog("you didn't enter a lammat for player 3");//,,,,,,,,,,,,,//
                         await msgbox.ShowAsync();
                         return;
                     }
-                    if (call4.Text == "Lammat")
+                    if (lammat4.Text == "Lammat")
                     {
                         i--;
                         MessageDialog msgbox = new MessageDialog("you didn't enter a lammat for player 4");
@@ -187,7 +185,47 @@ namespace App2
                     if (call4.Text == "DC")
                     { dashcall4 = true; call4.Text = "0"; }
                     else dashcall4 = false;
-                    mc = new Majorcal(int.Parse(call1.Text), int.Parse(lammat1.Text), dashcall1, int.Parse(call2.Text), int.Parse(lammat2.Text), dashcall2, int.Parse(call3.Text), int.Parse(lammat3.Text), dashcall3, int.Parse(call4.Text), int.Parse(lammat4.Text), dashcall4);
+                    if (mc.isSa3ayda())
+                    {
+                        mc = new Majorcal(int.Parse(call1.Text), int.Parse(lammat1.Text), dashcall1, int.Parse(call2.Text), int.Parse(lammat2.Text), dashcall2, int.Parse(call3.Text), int.Parse(lammat3.Text), dashcall3, int.Parse(call4.Text), int.Parse(lammat4.Text), dashcall4, gameno);
+                        if (mc.isError())
+                        {
+                            MessageDialog msgbox = new MessageDialog("Lammat msh mazpota ");//,,,,,,,,,,,,,//
+                            await msgbox.ShowAsync();
+                            gameno--;
+                            i--;
+                            return;
+                        }
+                       
+                        mc.setiscall();
+                        mc.setrisk();
+                        mc.setonlywinner();
+                        gameno--;
+                        scorei1[gameno - 1] = int.Parse(score1.Text);
+                        scorei1[gameno] = mc.getscore1(scorei1[gameno - 1]);
+                        scorei1[gameno] = scorei1[gameno] - scorei1[gameno - 1];
+                        scorei1[gameno] = scorei1[gameno - 1] + (scorei1[gameno] * 2*sa3ayda);           
+                        score1.Text = scorei1[gameno].ToString();
+                        scorei2[gameno - 1] = int.Parse(score2.Text);
+                        scorei2[gameno] = mc.getscore2(scorei2[gameno - 1]);
+                        scorei2[gameno] = scorei2[gameno] - scorei2[gameno - 1];
+                        scorei2[gameno] = scorei2[gameno - 1] + (scorei2[gameno] * 2 * sa3ayda);
+                        score2.Text = scorei2[gameno].ToString();
+                        scorei3[gameno - 1] = int.Parse(score3.Text);
+                        scorei3[gameno] = mc.getscore3(scorei3[gameno - 1]);
+                        scorei3[gameno] = scorei3[gameno] - scorei3[gameno - 1];
+                        scorei3[gameno] = scorei3[gameno - 1] + (scorei3[gameno] * 2 * sa3ayda);
+                        score3.Text = scorei3[gameno].ToString();
+                        scorei4[gameno - 1] = int.Parse(score4.Text);
+                        scorei4[gameno] = mc.getscore4(scorei4[gameno - 1]);       
+                        scorei4[gameno] = scorei4[gameno] - scorei4[gameno - 1];
+                        scorei4[gameno] = scorei4[gameno - 1] + (scorei4[gameno] * 2 * sa3ayda);
+                        score4.Text = scorei4[gameno].ToString();
+                        sa3ayda++;
+                        sa3ydaholder = true;
+
+                    }
+                    mc = new Majorcal(int.Parse(call1.Text), int.Parse(lammat1.Text), dashcall1, int.Parse(call2.Text), int.Parse(lammat2.Text), dashcall2, int.Parse(call3.Text), int.Parse(lammat3.Text), dashcall3, int.Parse(call4.Text), int.Parse(lammat4.Text), dashcall4,gameno);
                     if (mc.isError())
                     {
                         MessageDialog msgbox = new MessageDialog("Lammat msh mazpota ");//,,,,,,,,,,,,,//
@@ -200,23 +238,43 @@ namespace App2
                     mc.setiscall();
                     mc.setrisk();
                     mc.setonlywinner();
-                    calli1[gameno] = (int.Parse(call1.Text));
-                    calli2[gameno] = (int.Parse(call2.Text));
-                    calli3[gameno] = (int.Parse(call3.Text));
-                    calli4[gameno] = (int.Parse(call4.Text));
-                    scorei1[gameno - 1] = int.Parse(score1.Text);
-                    scorei1[gameno] = mc.getscore1(scorei1[gameno - 1]);
-                    score1.Text = scorei1[gameno].ToString();
-                    scorei2[gameno - 1] = int.Parse(score2.Text);
-                    scorei2[gameno] = mc.getscore2(scorei2[gameno - 1]);
-                    score2.Text = scorei2[gameno].ToString();
-                    scorei3[gameno - 1] = int.Parse(score3.Text);
-                    scorei3[gameno] = mc.getscore3(scorei3[gameno - 1]);
-                    score3.Text = scorei3[gameno].ToString();
-                    scorei4[gameno - 1] = int.Parse(score4.Text);
-                    scorei4[gameno] = mc.getscore1(scorei4[gameno - 1]);
-                    score4.Text = scorei4[gameno].ToString();
-
+                   
+                    if (!mc.isSa3ayda() && !sa3ydaholder)
+                    {
+                        sa3ayda = 1;
+                        scorei1[gameno - 1] = int.Parse(score1.Text);
+                        scorei1[gameno] = mc.getscore1(scorei1[gameno - 1]);
+                        if (mc.isDoubled())
+                        {
+                            scorei1[gameno] = scorei1[gameno] - scorei1[gameno - 1];
+                            scorei1[gameno] = scorei1[gameno - 1] + (scorei1[gameno] * 2);
+                        }
+                        score1.Text = scorei1[gameno].ToString();
+                        scorei2[gameno - 1] = int.Parse(score2.Text);
+                        scorei2[gameno] = mc.getscore2(scorei2[gameno - 1]);
+                        if (mc.isDoubled())
+                        {
+                            scorei2[gameno] = scorei2[gameno] - scorei2[gameno - 1];
+                            scorei2[gameno] = scorei2[gameno - 1] + (scorei2[gameno] * 2);
+                        }
+                        score2.Text = scorei2[gameno].ToString();
+                        scorei3[gameno - 1] = int.Parse(score3.Text);
+                        scorei3[gameno] = mc.getscore3(scorei3[gameno - 1]);
+                        if (mc.isDoubled())
+                        {
+                            scorei3[gameno] = scorei3[gameno] - scorei3[gameno - 1];
+                            scorei3[gameno] = scorei3[gameno - 1] + (scorei3[gameno] * 2);
+                        }
+                        score3.Text = scorei3[gameno].ToString();
+                        scorei4[gameno - 1] = int.Parse(score4.Text);
+                        scorei4[gameno] = mc.getscore4(scorei4[gameno - 1]);
+                        if (mc.isDoubled())
+                        {
+                            scorei4[gameno] = scorei4[gameno] - scorei4[gameno - 1];
+                            scorei4[gameno] = scorei4[gameno - 1] + (scorei4[gameno] * 2);
+                        }
+                        score4.Text = scorei4[gameno].ToString();
+                    }
                     button2.Content = "Start Round";
 
                     lammat1.Visibility = Visibility.Collapsed;
@@ -238,7 +296,16 @@ namespace App2
                     gamest.Visibility = Visibility.Collapsed;
                     gamenumber.Visibility = Visibility.Visible;
                     gamenumber.Text = "Games played=" + gameno.ToString();
-
+                    sa3ydaholder = false;
+                    if (dashcall1)
+                        dashcall1 = false;
+                    if (dashcall2)
+                        dashcall2 = false;
+                    if (dashcall3)
+                        dashcall3 = false;
+                    if (dashcall4)
+                        dashcall4 = false;
+                    iscall1 = true;
                 }
                 else
                 {
@@ -284,7 +351,7 @@ namespace App2
                     { calli4[gameno + 1] = 0; }
                     else
                         calli4[gameno + 1] = int.Parse(call4.Text);
-                    gamestate = Math.Abs(calli1[gameno + 1] + calli2[gameno + 1] + calli3[gameno + 1] + calli4[gameno + 1]) - 13;
+                    gamestate = calli1[gameno + 1] + calli2[gameno + 1] + calli3[gameno + 1] + calli4[gameno + 1] - 13;
                     if (gamestate == 0)
                     {
                         i--;
@@ -311,9 +378,9 @@ namespace App2
                     lammat3.Text = "Lammat";
                     lammat4.Text = "Lammat";
                     gamest.Visibility = Visibility.Visible;
-                    if (gamestate > 13)
+                    if (gamestate > 0)
                         gamest.Text = "Game is over    " + gamestate.ToString();
-                    if (gamestate < 13)
+                    if (gamestate < 0)
                         gamest.Text = "Game is under   " + (gamestate * -1).ToString();
 
                     iscall1 = false;
@@ -1030,7 +1097,7 @@ namespace App2
                     call3.Text = "Choose Call";
                     call4.Text = "Choose Call";
                     button2.Content = "Start Round";
-                   
+                    
                 }
             }
         }

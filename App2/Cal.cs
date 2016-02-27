@@ -33,7 +33,7 @@ namespace App2
         public void Loserscore()
         {
             if (call > 7)
-                score = score - (lammat * 2);
+                score = score - ((call * call)/2);
             else {
                 if (isdash)
                     score = score - 33;

@@ -46,9 +46,10 @@ namespace App2
         private bool onlylose4 = false;
         private int Risk4 = 0;
         private int doub = 0;
+        private int gameno;
 
 
-        public Majorcal(int call1, int lammat1, bool dash1, int call2, int lammat2, bool dash2, int call3, int lammat3, bool dash3, int call4, int lammat4, bool dash4)
+        public Majorcal(int call1, int lammat1, bool dash1, int call2, int lammat2, bool dash2, int call3, int lammat3, bool dash3, int call4, int lammat4, bool dash4,int gameno)
         {
             this.call1 = call1;
             this.lammat1 = lammat1;
@@ -72,6 +73,8 @@ namespace App2
                 doub++;
             if (dash4)
                 doub++;
+            this.gameno = gameno;
+
         }
         public void setrisk()
         {
@@ -151,6 +154,90 @@ namespace App2
             }
             if (doub >= 3)
                 doubled = true;
+            if (gameno % 4 == 1)
+            {
+                if (iscall1)
+                {
+                    iscall2 = false;
+                    iscall3 = false;
+                    iscall4 = false;
+
+                }
+                if (iscall2)
+                {
+
+                    iscall3 = false;
+                    iscall4 = false;
+
+                }
+                if (iscall3)
+                {
+                    iscall4 = false;
+                }
+            }
+            if (gameno % 4 == 2)
+            {
+                if (iscall2)
+                {
+                    iscall1 = false;
+                    iscall3 = false;
+                    iscall4 = false;
+
+                }
+                if (iscall3)
+                {
+
+                    iscall1 = false;
+                    iscall4 = false;
+
+                }
+                if (iscall4)
+                {
+                    iscall1 = false;
+                }
+            }
+            if (gameno % 4 == 3)
+            {
+                if (iscall3)
+                {
+                    iscall1 = false;
+                    iscall2 = false;
+                    iscall4 = false;
+
+                }
+                if (iscall4)
+                {
+
+                    iscall1 = false;
+                    iscall2 = false;
+
+                }
+                if (iscall1)
+                {
+                    iscall2 = false;
+                }
+            }
+            if (gameno % 4 == 0)
+            {
+                if (iscall4)
+                {
+                    iscall2 = false;
+                    iscall3 = false;
+                    iscall1 = false;
+
+                }
+                if (iscall1)
+                {
+
+                    iscall3 = false;
+                    iscall2 = false;
+
+                }
+                if (iscall2)
+                {
+                    iscall3 = false;
+                }
+            }
 
         }
         public void setonlywinner()
@@ -209,41 +296,42 @@ namespace App2
             }
 
         }
+
+        internal bool isDoubled()
+        {
+            return doubled;
+        }
+
         public int getscore1(int score)
         {
             c = new Cal(lammat1, call1, iscall1, iswith1, isdash1, onlywin1, onlylose1, Risk1);
             c.setScore(score);
-            if (!doubled)
+          
                 return c.getScore();
-            else
-                return c.getScore() * 2;
+           
         }
         public int getscore2(int score)
         {
             c = new Cal(lammat2, call2, iscall2, iswith2, isdash2, onlywin2, onlylose2, Risk2);
             c.setScore(score);
-            if (!doubled)
-                return c.getScore();
-            else
-                return c.getScore() * 2;
+           
+                return c.getScore() ;
         }
         public int getscore3(int score)
         {
             c = new Cal(lammat3, call3, iscall3, iswith3, isdash3, onlywin3, onlylose3, Risk3);
             c.setScore(score);
-            if (!doubled)
+           
                 return c.getScore();
-            else
-                return c.getScore() * 2;
+            
         }
         public int getscore4(int score)
         {
             c = new Cal(lammat4, call4, iscall4, iswith4, isdash4, onlywin4, onlylose4, Risk4);
             c.setScore(score);
-            if (!doubled)
+           
                 return c.getScore();
-            else
-                return c.getScore() * 2;
+           
         }
 
 
