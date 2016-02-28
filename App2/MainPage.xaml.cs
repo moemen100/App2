@@ -84,7 +84,7 @@ namespace App2
                     i--;
                 }
                 else {
-                    name2_Copy.Text = textBox.Text;
+                   name1.Text = textBox.Text;
                     textBox.Text = "";
                 }
 
@@ -359,8 +359,121 @@ namespace App2
                         await msgbox.ShowAsync();
                         return;
                     }
+                    mc = new Majorcal(calli1[gameno + 1], calli2[gameno + 1], calli3[gameno + 1], calli4[gameno + 1]);
+                    mc.setiscall();
+                    if (mc.iscall2 && mc.iswith2)
+                    {
+                       
+                        if(!mc.iswith1)
+                        {
+                            wh_Call1.Visibility = Visibility.Collapsed;
+                        }
+                        else
+                        { wh_Call1.Content = name1.Text; }
+                        if (!mc.iswith3)
+                        {
+                            wh_Call3.Visibility = Visibility.Collapsed;
+                        }
+                        else
+                        { wh_Call3.Content = name3.Text; }
+                        if (!mc.iswith4)
+                        {
+                            wh_Call4.Visibility = Visibility.Collapsed;
+                        }
+                        else
+                        { wh_Call4.Content = name4.Text; }
+                          
+                        wh_Call2.Content = name2.Text;
+                        wh_Call.Visibility = Visibility.Visible;
+                        
+
+                        
+                    }
+                    if (mc.iscall1 && mc.iswith1)
+                    {
+                        
+                        
+                        if (!mc.iswith2)
+                        {
+                            wh_Call2.Visibility = Visibility.Collapsed;
+                        }
+                        else
+                        { wh_Call2.Content = name2.Text; }
+                        if (!mc.iswith3)
+                        {
+                            wh_Call3.Visibility = Visibility.Collapsed;
+                        }
+                        else
+                        { wh_Call3.Content = name3.Text; }
+                        if (!mc.iswith4)
+                        {
+                            wh_Call4.Visibility = Visibility.Collapsed;
+                        }
+                        else
+                        { wh_Call4.Content = name4.Text; }
+
+                        wh_Call1.Content = name1.Text;
+                        wh_Call.Visibility = Visibility.Visible;
+                        
+                    }
+                    if (mc.iscall3 && mc.iswith3)
+                    {
+                        
+                        if(!mc.iswith1)
+                        {
+                            wh_Call1.Visibility = Visibility.Collapsed;
+                        }
+                        else
+                        { wh_Call1.Content = name1.Text; }
+                        if (!mc.iswith2)
+                        {
+                            wh_Call2.Visibility = Visibility.Collapsed;
+                        }
+                        else
+                        { wh_Call2.Content = name2.Text; }
+                        if (!mc.iswith4)
+                        {
+                            wh_Call4.Visibility = Visibility.Collapsed;
+                        }
+                        else
+                        { wh_Call4.Content = name4.Text; }
+                          
+                        wh_Call3.Content = name3.Text;
+                        wh_Call.Visibility = Visibility.Visible;
+                       
+                    }
+                    if (mc.iscall4 && mc.iswith4)
+                    {
+                        if (!mc.iswith1)
+                        {
+                            wh_Call1.Visibility = Visibility.Collapsed;
+                        }
+                        else
+                        { wh_Call1.Content = name1.Text; }
+                        if (!mc.iswith3)
+                        {
+                            wh_Call3.Visibility = Visibility.Collapsed;
+                        }
+                        else
+                        { wh_Call3.Content = name3.Text; }
+                        if (!mc.iswith2)
+                        {
+                            wh_Call2.Visibility = Visibility.Collapsed;
+                        }
+                        else
+                        { wh_Call2.Content = name2.Text; }
+
+                        wh_Call4.Content = name4.Text;
+                        wh_Call.Visibility = Visibility.Visible;
+
+                        
+                    }
+                    
+
+                   
                     button2.Content = "Calculate score";
 
+                   
                     lammat1.Visibility = Visibility.Visible;
                     lammat2.Visibility = Visibility.Visible;
                     lammat3.Visibility = Visibility.Visible;
@@ -1105,6 +1218,105 @@ namespace App2
         private void textBox_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             textBox.Text = "";
+        }
+
+       
+
+        private  void wh_Call_done_Click(object sender, RoutedEventArgs e)
+        {
+            if (wh_Call1.IsChecked.GetValueOrDefault() == true)
+            {
+                
+                mc.iscall1 = true;
+                mc.iswith1 = false;
+                if (mc.iscall2)
+                { mc.iscall2 = false;
+                    mc.iswith2 = true;
+                }
+                if (mc.iscall3)
+                {
+                    mc.iscall3 = false;
+                    mc.iswith3 = true;
+                }
+                if (mc.iscall4)
+                {
+                    mc.iscall4 = false;
+                    mc.iswith4= true;
+                }
+            }
+            if (wh_Call2.IsChecked.GetValueOrDefault()==true)
+            {
+                
+                mc.iscall2 = true;
+                mc.iswith2 = false;
+                if (mc.iscall1)
+                {
+                    mc.iscall1 = false;
+                    mc.iswith1 = true;
+                }
+                if (mc.iscall3)
+                {
+                    mc.iscall3 = false;
+                    mc.iswith3 = true;
+                }
+                if (mc.iscall4)
+                {
+                    mc.iscall4 = false;
+                    mc.iswith4 = true;
+                }
+            }
+            if (wh_Call3.IsChecked.GetValueOrDefault() == true)
+            {
+                
+                mc.iscall3 = true;
+                mc.iswith3 = false;
+                if (mc.iscall2)
+                {
+                    mc.iscall2 = false;
+                    mc.iswith2 = true;
+                }
+                if (mc.iscall1)
+                {
+                    mc.iscall1 = false;
+                    mc.iswith1 = true;
+                }
+                if (mc.iscall4)
+                {
+                    mc.iscall4 = false;
+                    mc.iswith4 = true;
+                }
+            }
+            if (wh_Call4.IsChecked.GetValueOrDefault() == true)
+            {
+               
+                mc.iscall4 = true;
+                mc.iswith4 = false;
+                if (mc.iscall2)
+                {
+                    mc.iscall2 = false;
+                    mc.iswith2 = true;
+                }
+                if (mc.iscall3)
+                {
+                    mc.iscall3 = false;
+                    mc.iswith3 = true;
+                }
+                if (mc.iscall1)
+                {
+                    mc.iscall1 = false;
+                    mc.iswith1 = true;
+                }
+            }
+
+            if (mc.iscall1)
+            { image_call1.Visibility = Visibility.Visible; }
+            if (mc.iscall2)
+            { image_call2.Visibility = Visibility.Visible; }
+            if (mc.iscall3)
+            { image_call3.Visibility = Visibility.Visible; }
+            if (mc.iscall4)
+            { image_call4.Visibility = Visibility.Visible; }
+            wh_Call.Visibility = Visibility.Collapsed;
         }
     }
 

@@ -11,8 +11,8 @@ namespace App2
     {
         private int call1;
         private int lammat1;
-        private bool iscall1 = false;
-        private bool iswith1 = false;
+        public bool iscall1 = false;
+        public bool iswith1 = false;
         private bool isdash1;
         private bool sa3ayda = false;
         private Cal c;
@@ -22,16 +22,16 @@ namespace App2
         private int Risk1 = 0;
         private int call2;
         private int lammat2;
-        private bool iscall2 = false;
-        private bool iswith2 = false;
+        public bool iscall2 = false;
+        public bool iswith2 = false;
         private bool isdash2;
         private bool onlywin2 = false;
         private bool onlylose2 = false;
         private int Risk2 = 0;
         private int call3;
         private int lammat3;
-        private bool iscall3 = false;
-        private bool iswith3 = false;
+        public bool iscall3 = false;
+        public bool iswith3 = false;
         private bool isdash3;
         private bool doubled = false;
         private bool onlywin3 = false;
@@ -39,8 +39,8 @@ namespace App2
         private int Risk3 = 0;
         private int call4;
         private int lammat4;
-        private bool iscall4 = false;
-        private bool iswith4 = false;
+        public bool iscall4 = false;
+        public bool iswith4 = false;
         private bool isdash4;
         private bool onlywin4 = false;
         private bool onlylose4 = false;
@@ -48,7 +48,13 @@ namespace App2
         private int doub = 0;
         private int gameno;
 
-
+        public Majorcal(int call1,int call2,int call3,int call4)
+        {
+            this.call1 = call1;
+            this.call2 = call2;
+            this.call3 = call3;
+            this.call4 = call4;
+        }
         public Majorcal(int call1, int lammat1, bool dash1, int call2, int lammat2, bool dash2, int call3, int lammat3, bool dash3, int call4, int lammat4, bool dash4,int gameno)
         {
             this.call1 = call1;
