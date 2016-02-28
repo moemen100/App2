@@ -372,9 +372,9 @@
         <TextBlock x:Name="gamest" HorizontalAlignment="Left" Margin="5,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="1.019,3.333" Height="49" Width="192" Visibility="Collapsed"/>
         <TextBox x:Name="gamenumber" HorizontalAlignment="Left" Margin="202,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="191" Visibility="Collapsed"/>
         <Image x:Name="image_call1" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="35" Margin="130,149,0,0" Source="Assets/c-400.png" RenderTransformOrigin="1.225,0.583" Visibility="Collapsed"/>
-        <Image x:Name="image_call2" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="35" Margin="354,149,0,0" Source="Assets/c-400.png" RenderTransformOrigin="1.225,0.583" Visibility="Collapsed"/>
-        <Image x:Name="image_call3" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="35" Margin="354,429,0,0" Source="Assets/c-400.png" RenderTransformOrigin="1.225,0.583" Visibility="Collapsed"/>
-        <Image x:Name="image_call4" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="35" Margin="130,429,0,0" Source="Assets/c-400.png" RenderTransformOrigin="1.225,0.583" Visibility="Collapsed"/>
+        <Image x:Name="image_call2" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="35" Margin="325,149,0,0" Source="Assets/c-400.png" RenderTransformOrigin="1.225,0.583" Visibility="Collapsed"/>
+        <Image x:Name="image_call4" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="35" Margin="325,429,0,0" Source="Assets/c-400.png" RenderTransformOrigin="1.225,0.583" Visibility="Collapsed"/>
+        <Image x:Name="image_call3" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="35" Margin="130,429,0,0" Source="Assets/c-400.png" RenderTransformOrigin="1.225,0.583" Visibility="Collapsed"/>
         <Canvas x:Name="wh_Call" HorizontalAlignment="Left" Height="587" Margin="-5,54,0,-1" VerticalAlignment="Top" Width="405" Background="Black" Visibility="Collapsed">
             <TextBlock x:Name="textBlock" Canvas.Left="10" TextWrapping="Wrap" Text="Choose Who is Call ?" Canvas.Top="10" Height="86" Width="337" FontSize="32"/>
             <RadioButton x:Name="wh_Call2" Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="199" RenderTransformOrigin="-1.262,2.512" FontSize="32" Width="243"/>

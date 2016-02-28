@@ -85,29 +85,93 @@ namespace App2
         public void setrisk()
         {
             if (Math.Abs(call1 + call2 + call3 + call4 - 13) == 2 && iscall4)
-                Risk3 = 1;
+            {if (!isdash3)
+                    Risk3 = 1;
+                else 
+                    Risk2 = 1;
+            }
             if (Math.Abs(call1 + call2 + call3 + call4 - 13) == 2 && iscall1)
-                Risk4 = 1;
+            {
+                if (!isdash4)
+                    Risk4 = 1;
+                else
+                    Risk3 = 1;
+            }
+
             if (Math.Abs(call1 + call2 + call3 + call4 - 13) == 2 && iscall3)
-                Risk2 = 1;
+            {
+                if (!isdash2)
+                    Risk2 = 1;
+                else
+                    Risk1 = 1;
+            }
             if (Math.Abs(call1 + call2 + call3 + call4 - 13) == 2 && iscall2)
-                Risk1 = 1;
+               
+            {
+                if (!isdash1)
+                    Risk1 = 1;
+                else
+                    Risk4 = 1;
+            }
             if (Math.Abs(call1 + call2 + call3 + call4 - 13) == 3 && iscall4)
-                Risk3 = 2;
+               
+            {
+                if (!isdash3)
+                    Risk3 = 2;
+                else
+                    Risk2 = 2;
+            }
             if (Math.Abs(call1 + call2 + call3 + call4 - 13) == 3 && iscall1)
-                Risk4 = 2;
+            {
+                if (!isdash4)
+                    Risk4 = 2;
+                else
+                    Risk3 =2;
+            }
             if (Math.Abs(call1 + call2 + call3 + call4 - 13) == 3 && iscall3)
-                Risk2 = 2;
+            {
+                if (!isdash2)
+                    Risk2 = 2;
+                else
+                    Risk1 = 2;
+            }
             if (Math.Abs(call1 + call2 + call3 + call4 - 13) == 3 && iscall2)
-                Risk1 = 2;
+            {
+                if (!isdash1)
+                    Risk1 = 2;
+                else
+                    Risk4 = 2;
+            }
             if (Math.Abs(call1 + call2 + call3 + call4 - 13) >=4 && iscall4)
-                Risk3 = 3;
+               
+            {
+                if (!isdash3)
+                    Risk3 = 3;
+                else
+                    Risk2 = 3;
+            }
             if (Math.Abs(call1 + call2 + call3 + call4 - 13) >= 4 && iscall1)
-                Risk4 = 3;
+            {
+                if (!isdash4)
+                    Risk4 = 3;
+                else
+                    Risk3 = 3;
+            }
             if (Math.Abs(call1 + call2 + call3 + call4 - 13) >= 4 && iscall3)
-                Risk2 = 3;
+               
+            {
+                if (!isdash2)
+                    Risk2 = 3;
+                else
+                    Risk1 = 3;
+            }
             if (Math.Abs(call1 + call2 + call3 + call4 - 13) >= 4 && iscall2)
-                Risk1 = 3;
+            {
+                if (!isdash1)
+                    Risk1 = 3;
+                else
+                    Risk4 = 3;
+            }
 
         }
         public void setiscall()

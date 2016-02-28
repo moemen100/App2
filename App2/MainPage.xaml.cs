@@ -196,31 +196,86 @@ namespace App2
                             i--;
                             return;
                         }
-                       
-                        mc.setiscall();
+
+                       if( image_call1.Visibility == Visibility.Visible)
+                        {
+                            mc.iscall1 = true;
+                            mc.iswith1 = false;
+                            mc.iscall2 = false;
+                            mc.iscall3 = false;
+                            mc.iscall4 = false;
+                        }
+                        if (image_call2.Visibility == Visibility.Visible)
+                        {
+                            mc.iscall2 = true;
+                            mc.iswith2 = false;
+                            mc.iscall1 = false;
+                            mc.iscall3 = false;
+                            mc.iscall4 = false;
+                        }
+                        if (image_call3.Visibility == Visibility.Visible)
+                        {
+                            mc.iscall3 = true;
+                            mc.iswith3 = false;
+                            mc.iscall2 = false;
+                            mc.iscall1 = false;
+                            mc.iscall4 = false;
+                        }
+                        if (image_call4.Visibility == Visibility.Visible)
+                        {
+                            mc.iscall4 = true;
+                            mc.iswith4 = false;
+                            mc.iscall2 = false;
+                            mc.iscall3 = false;
+                            mc.iscall1 = false;
+                        }
                         mc.setrisk();
                         mc.setonlywinner();
                         gameno--;
                         scorei1[gameno - 1] = int.Parse(score1.Text);
                         scorei1[gameno] = mc.getscore1(scorei1[gameno - 1]);
                         scorei1[gameno] = scorei1[gameno] - scorei1[gameno - 1];
-                        scorei1[gameno] = scorei1[gameno - 1] + (scorei1[gameno] * 2*sa3ayda);           
-                        score1.Text = scorei1[gameno].ToString();
+                        scorei1[gameno] = scorei1[gameno - 1] + (scorei1[gameno] * 2*sa3ayda);
+                        if (mc.isDoubled())
+                        {
+                            scorei1[gameno] = scorei1[gameno] - scorei1[gameno - 1];
+                            scorei1[gameno] = scorei1[gameno - 1] + (scorei1[gameno] * 2);
+                        }
+                        if (!mc.isSa3ayda())
+                            score1.Text = scorei1[gameno].ToString();
                         scorei2[gameno - 1] = int.Parse(score2.Text);
                         scorei2[gameno] = mc.getscore2(scorei2[gameno - 1]);
                         scorei2[gameno] = scorei2[gameno] - scorei2[gameno - 1];
                         scorei2[gameno] = scorei2[gameno - 1] + (scorei2[gameno] * 2 * sa3ayda);
-                        score2.Text = scorei2[gameno].ToString();
+                        if (mc.isDoubled())
+                        {
+                            scorei2[gameno] = scorei2[gameno] - scorei2[gameno - 1];
+                            scorei2[gameno] = scorei2[gameno - 1] + (scorei2[gameno] * 2);
+                        }
+                        if (!mc.isSa3ayda())
+                            score2.Text = scorei2[gameno].ToString();
                         scorei3[gameno - 1] = int.Parse(score3.Text);
                         scorei3[gameno] = mc.getscore3(scorei3[gameno - 1]);
                         scorei3[gameno] = scorei3[gameno] - scorei3[gameno - 1];
                         scorei3[gameno] = scorei3[gameno - 1] + (scorei3[gameno] * 2 * sa3ayda);
-                        score3.Text = scorei3[gameno].ToString();
+                        if (mc.isDoubled())
+                        {
+                            scorei3[gameno] = scorei3[gameno] - scorei3[gameno - 1];
+                            scorei3[gameno] = scorei3[gameno - 1] + (scorei3[gameno] * 2);
+                        }
+                        if (!mc.isSa3ayda())
+                            score3.Text = scorei3[gameno].ToString();
                         scorei4[gameno - 1] = int.Parse(score4.Text);
                         scorei4[gameno] = mc.getscore4(scorei4[gameno - 1]);       
                         scorei4[gameno] = scorei4[gameno] - scorei4[gameno - 1];
                         scorei4[gameno] = scorei4[gameno - 1] + (scorei4[gameno] * 2 * sa3ayda);
-                        score4.Text = scorei4[gameno].ToString();
+                        if (mc.isDoubled())
+                        {
+                            scorei4[gameno] = scorei4[gameno] - scorei4[gameno - 1];
+                            scorei4[gameno] = scorei4[gameno - 1] + (scorei4[gameno] * 2);
+                        }
+                        if (!mc.isSa3ayda())
+                            score4.Text = scorei4[gameno].ToString();
                         sa3ayda++;
                         sa3ydaholder = true;
 
@@ -235,7 +290,38 @@ namespace App2
                         return;
                     }
 
-                    mc.setiscall();
+                    if (image_call1.Visibility == Visibility.Visible)
+                    {
+                        mc.iscall1 = true;
+                        mc.iswith1 = false;
+                        mc.iscall2 = false;
+                        mc.iscall3 = false;
+                        mc.iscall4 = false;
+                    }
+                    if (image_call2.Visibility == Visibility.Visible)
+                    {
+                        mc.iscall2 = true;
+                        mc.iswith2 = false;
+                        mc.iscall1 = false;
+                        mc.iscall3 = false;
+                        mc.iscall4 = false;
+                    }
+                    if (image_call3.Visibility == Visibility.Visible)
+                    {
+                        mc.iscall3 = true;
+                        mc.iswith3 = false;
+                        mc.iscall2 = false;
+                        mc.iscall1 = false;
+                        mc.iscall4 = false;
+                    }
+                    if (image_call4.Visibility == Visibility.Visible)
+                    {
+                        mc.iscall4 = true;
+                        mc.iswith4 = false;
+                        mc.iscall2 = false;
+                        mc.iscall3 = false;
+                        mc.iscall1 = false;
+                    }
                     mc.setrisk();
                     mc.setonlywinner();
                    
