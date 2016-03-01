@@ -29,6 +29,7 @@ namespace App2
         public int[] score2;
         public int[] score3;
         public int[] score4;
+        public int[] shape;
         public int gameno;
 
         private TransitionCollection transitions;

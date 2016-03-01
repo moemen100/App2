@@ -41,13 +41,24 @@ namespace App2
 
         private void listView1_Loaded(object sender, RoutedEventArgs e)
         {
-            var obj = App.Current as App;           
+            var obj = App.Current as App;
+            TextBlock l1 = new TextBlock();
+            l1.Text = (obj.score1[0].ToString().Length.ToString());
+            l1.FontSize = 26;
+            gridView.Items.Add(l1);
+            gridView.Items.Add("hhh");
+            gridView.Items.Add("hhh");
+            gridView.Items.Add("hhh");
+           
+           
+
+                   
             for (int i = 1; i <= obj.gameno; i++)
             {
                 listView1.Items.Add(obj.score1[i]);
                 listView2.Items.Add(obj.score2[i]);
                 listView3.Items.Add(obj.score3[i]);
-                listView4.Items.Add(obj.score4[i]);
+                listView4.Items.Add(obj.shape[i]);
 
             }
         }

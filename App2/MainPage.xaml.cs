@@ -196,8 +196,8 @@ namespace App2
                             i--;
                             return;
                         }
-
-                       if( image_call1.Visibility == Visibility.Visible)
+                        mc.setiscall();
+                        if (image_call1.Visibility == Visibility.Visible)
                         {
                             mc.iscall1 = true;
                             mc.iswith1 = false;
@@ -235,7 +235,7 @@ namespace App2
                         scorei1[gameno - 1] = int.Parse(score1.Text);
                         scorei1[gameno] = mc.getscore1(scorei1[gameno - 1]);
                         scorei1[gameno] = scorei1[gameno] - scorei1[gameno - 1];
-                        scorei1[gameno] = scorei1[gameno - 1] + (scorei1[gameno] * 2*sa3ayda);
+                        scorei1[gameno] = scorei1[gameno - 1] + (scorei1[gameno] * 2 * sa3ayda);
                         if (mc.isDoubled())
                         {
                             scorei1[gameno] = scorei1[gameno] - scorei1[gameno - 1];
@@ -266,7 +266,7 @@ namespace App2
                         if (!mc.isSa3ayda())
                             score3.Text = scorei3[gameno].ToString();
                         scorei4[gameno - 1] = int.Parse(score4.Text);
-                        scorei4[gameno] = mc.getscore4(scorei4[gameno - 1]);       
+                        scorei4[gameno] = mc.getscore4(scorei4[gameno - 1]);
                         scorei4[gameno] = scorei4[gameno] - scorei4[gameno - 1];
                         scorei4[gameno] = scorei4[gameno - 1] + (scorei4[gameno] * 2 * sa3ayda);
                         if (mc.isDoubled())
@@ -280,7 +280,7 @@ namespace App2
                         sa3ydaholder = true;
 
                     }
-                    mc = new Majorcal(int.Parse(call1.Text), int.Parse(lammat1.Text), dashcall1, int.Parse(call2.Text), int.Parse(lammat2.Text), dashcall2, int.Parse(call3.Text), int.Parse(lammat3.Text), dashcall3, int.Parse(call4.Text), int.Parse(lammat4.Text), dashcall4,gameno);
+                    mc = new Majorcal(int.Parse(call1.Text), int.Parse(lammat1.Text), dashcall1, int.Parse(call2.Text), int.Parse(lammat2.Text), dashcall2, int.Parse(call3.Text), int.Parse(lammat3.Text), dashcall3, int.Parse(call4.Text), int.Parse(lammat4.Text), dashcall4, gameno);
                     if (mc.isError())
                     {
                         MessageDialog msgbox = new MessageDialog("Lammat msh mazpota ");//,,,,,,,,,,,,,//
@@ -289,7 +289,7 @@ namespace App2
                         i--;
                         return;
                     }
-
+                    mc.setiscall();
                     if (image_call1.Visibility == Visibility.Visible)
                     {
                         mc.iscall1 = true;
@@ -324,7 +324,7 @@ namespace App2
                     }
                     mc.setrisk();
                     mc.setonlywinner();
-                   
+
                     if (!mc.isSa3ayda() && !sa3ydaholder)
                     {
                         sa3ayda = 1;
@@ -375,6 +375,10 @@ namespace App2
                     image_Call2.Visibility = Visibility.Visible;
                     image_Call3.Visibility = Visibility.Visible;
                     image_Call4.Visibility = Visibility.Visible;
+                    image_call1.Visibility = Visibility.Collapsed;
+                    image_call2.Visibility = Visibility.Collapsed;
+                    image_call3.Visibility = Visibility.Collapsed;
+                    image_call4.Visibility = Visibility.Collapsed;
                     call1.Text = "Choose Call";
                     call2.Text = "Choose Call";
                     call3.Text = "Choose Call";
@@ -447,10 +451,10 @@ namespace App2
                     }
                     mc = new Majorcal(calli1[gameno + 1], calli2[gameno + 1], calli3[gameno + 1], calli4[gameno + 1]);
                     mc.setiscall();
-                    if (mc.iscall2 && mc.iswith2)
+                    if (mc.iscall2 && mc.iswith2 && flipView2.Visibility == Visibility.Collapsed)
                     {
-                       
-                        if(!mc.iswith1)
+
+                        if (!mc.iswith1)
                         {
                             wh_Call1.Visibility = Visibility.Collapsed;
                         }
@@ -468,17 +472,17 @@ namespace App2
                         }
                         else
                         { wh_Call4.Content = name4.Text; }
-                          
+
                         wh_Call2.Content = name2.Text;
                         wh_Call.Visibility = Visibility.Visible;
-                        
 
-                        
+
+
                     }
-                    if (mc.iscall1 && mc.iswith1)
+                    if (mc.iscall1 && mc.iswith1 && flipView.Visibility == Visibility.Collapsed)
                     {
-                        
-                        
+
+
                         if (!mc.iswith2)
                         {
                             wh_Call2.Visibility = Visibility.Collapsed;
@@ -500,12 +504,12 @@ namespace App2
 
                         wh_Call1.Content = name1.Text;
                         wh_Call.Visibility = Visibility.Visible;
-                        
+
                     }
-                    if (mc.iscall3 && mc.iswith3)
+                    if (mc.iscall3 && mc.iswith3 && flipView3.Visibility == Visibility.Collapsed)
                     {
-                        
-                        if(!mc.iswith1)
+
+                        if (!mc.iswith1)
                         {
                             wh_Call1.Visibility = Visibility.Collapsed;
                         }
@@ -523,12 +527,12 @@ namespace App2
                         }
                         else
                         { wh_Call4.Content = name4.Text; }
-                          
+
                         wh_Call3.Content = name3.Text;
                         wh_Call.Visibility = Visibility.Visible;
-                       
+
                     }
-                    if (mc.iscall4 && mc.iswith4)
+                    if (mc.iscall4 && mc.iswith4 && flipView4.Visibility == Visibility.Collapsed)
                     {
                         if (!mc.iswith1)
                         {
@@ -552,11 +556,27 @@ namespace App2
                         wh_Call4.Content = name4.Text;
                         wh_Call.Visibility = Visibility.Visible;
 
-                        
-                    }
-                    
 
-                   
+                    }
+                    if (flipView.Visibility == Visibility.Visible)
+                    { image_call1.Visibility = Visibility.Visible;
+                        shape[gameno + 1]=flipView.SelectedIndex;
+                    }
+                    if (flipView2.Visibility == Visibility.Visible)
+                    { image_call2.Visibility = Visibility.Visible;
+                        shape[gameno + 1]=flipView.SelectedIndex;
+                    }
+                    if (flipView3.Visibility == Visibility.Visible)
+                    { image_call3.Visibility = Visibility.Visible;
+                        shape[gameno + 1] = flipView.SelectedIndex;
+                    }
+                    if (flipView4.Visibility == Visibility.Visible)
+                    { image_call4.Visibility = Visibility.Visible;
+                        shape[gameno + 1] = flipView.SelectedIndex;
+                    }
+
+                    
+                        
                     button2.Content = "Calculate score";
 
                    
@@ -1195,6 +1215,7 @@ namespace App2
             obj.score2 = scorei2;
             obj.score3 = scorei3;
             obj.score4 = scorei4;
+            obj.shape = shape;
             Frame.Navigate(typeof(BlankPage1));
             
 
@@ -1403,6 +1424,79 @@ namespace App2
             if (mc.iscall4)
             { image_call4.Visibility = Visibility.Visible; }
             wh_Call.Visibility = Visibility.Collapsed;
+        }
+        private int[] shape = new int[24];
+        private void call1_LayoutUpdated(object sender, object e)
+        {
+
+            if (call1.Visibility==Visibility.Visible)
+            {
+                
+                if(call1.Text!="Choose Call"&& call1.Text != "DC")
+                {
+                    shape[20] = int.Parse(call1.Text);
+                }
+
+                if (call2.Text != "Choose Call" && call2.Text != "DC")
+                {
+                    shape[21] = int.Parse(call2.Text);
+                }
+
+                if (call3.Text != "Choose Call" && call3.Text != "DC")
+                {
+                    shape[22] = int.Parse(call3.Text);
+                }
+
+                if (call4.Text != "Choose Call" && call4.Text != "DC")
+                {
+                    shape[23] = int.Parse(call4.Text);
+                }
+                if (shape[20] > shape[21] && shape[20] > shape[22] && shape[20] > shape[23])
+                {   flipView.Visibility = Visibility.Visible;
+                    flipView2.Visibility = Visibility.Collapsed;
+                    flipView3.Visibility = Visibility.Collapsed;
+                    flipView4.Visibility = Visibility.Collapsed;
+                }
+                
+                if (shape[21] > shape[20] && shape[21] > shape[22] && shape[21] > shape[23])
+                { flipView2.Visibility = Visibility.Visible;
+                    flipView4.Visibility = Visibility.Collapsed;
+                    flipView3.Visibility = Visibility.Collapsed;
+                    flipView.Visibility = Visibility.Collapsed;
+                }
+               
+                if (shape[22] > shape[21] && shape[22] > shape[20] && shape[22] > shape[23])
+                { flipView3.Visibility = Visibility.Visible;
+                    flipView2.Visibility = Visibility.Collapsed;
+                    flipView4.Visibility = Visibility.Collapsed;
+                    flipView.Visibility = Visibility.Collapsed;
+                }
+               
+                if (shape[23] > shape[20] && shape[23] > shape[22] && shape[23] > shape[21])
+                { flipView4.Visibility = Visibility.Visible;
+                    flipView3.Visibility = Visibility.Collapsed;
+                    flipView2.Visibility = Visibility.Collapsed;
+                    flipView.Visibility = Visibility.Collapsed;
+                }
+               if (flipView.Visibility == Visibility.Visible   && (shape[20]<shape[21] || shape[20] < shape[22] || shape[20] < shape[23]))
+                {
+                    flipView.Visibility= Visibility.Collapsed;
+                }
+                if (flipView2.Visibility == Visibility.Visible && (shape[21] < shape[20] || shape[21] < shape[22] || shape[21] < shape[23]))
+                {
+                    flipView2.Visibility = Visibility.Collapsed;
+                }
+                if (flipView3.Visibility == Visibility.Visible &&( shape[22] < shape[21] || shape[22] < shape[20] || shape[22] < shape[23]))
+                {
+                    flipView3.Visibility = Visibility.Collapsed;
+                }
+                if (flipView4.Visibility == Visibility.Visible && (shape[23] < shape[21] || shape[23] < shape[22] || shape[23] < shape[20]))
+                {
+                    flipView4.Visibility = Visibility.Collapsed;
+                }
+
+            }
+
         }
     }
 
