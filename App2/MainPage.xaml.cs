@@ -1215,6 +1215,10 @@ namespace App2
             obj.score2 = scorei2;
             obj.score3 = scorei3;
             obj.score4 = scorei4;
+            obj.call1 = calli1;
+            obj.call2 = calli2;
+            obj.call3 = calli3;
+            obj.call4 = calli4;
             obj.shape = shape;
             Frame.Navigate(typeof(BlankPage1));
             

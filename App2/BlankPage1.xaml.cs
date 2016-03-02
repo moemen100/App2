@@ -11,6 +11,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
@@ -36,36 +37,65 @@ namespace App2
         /// This parameter is typically used to configure the page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            var obj = App.Current as App;
+            TextBlock temp = new TextBlock();
+            temp.FontSize = 18;
+            Image temp2 = new Image();
+            BitmapImage bitmapImage = new BitmapImage();
+
+
+
+            for (int i = 0; i <= obj.gameno; i++)
+            {
+                temp.Text = obj.gameno.ToString();
+                game_no.Items.Add(temp);
+                temp = new TextBlock(); temp.FontSize = 18;
+                temp.Text = obj.score1[i].ToString();
+                score1.Items.Add(temp);
+                temp = new TextBlock(); temp.FontSize = 18;
+                temp.Text = obj.score2[i].ToString();
+                score2.Items.Add(temp);
+                temp = new TextBlock(); temp.FontSize = 18;
+                temp.Text = obj.score3[i].ToString();
+                score3.Items.Add(temp);
+                temp = new TextBlock(); temp.FontSize = 18;
+                temp.Text = obj.score4[i].ToString();
+                score4.Items.Add(temp);
+                temp = new TextBlock(); temp.FontSize = 18;
+                temp.Text = obj.call1[i].ToString();
+                call1.Items.Add(temp);
+                temp = new TextBlock(); temp.FontSize = 18;
+                temp.Text = obj.call2[i].ToString();
+                call2.Items.Add(temp);
+                temp = new TextBlock(); temp.FontSize = 18;
+                temp.Text = obj.call3[i].ToString();
+                call3.Items.Add(temp);
+                temp = new TextBlock(); temp.FontSize = 18;
+                temp.Text = obj.call4[i].ToString();
+                call4.Items.Add(temp);
+
+
+
+
+
+
+
+            }
+
+
         }
        
 
-        private void listView1_Loaded(object sender, RoutedEventArgs e)
-        {
-            var obj = App.Current as App;
-            TextBlock l1 = new TextBlock();
-            l1.Text = (obj.score1[0].ToString().Length.ToString());
-            l1.FontSize = 26;
-            gridView.Items.Add(l1);
-            gridView.Items.Add("hhh");
-            gridView.Items.Add("hhh");
-            gridView.Items.Add("hhh");
-           
-           
-
-                   
-            for (int i = 1; i <= obj.gameno; i++)
-            {
-                listView1.Items.Add(obj.score1[i]);
-                listView2.Items.Add(obj.score2[i]);
-                listView3.Items.Add(obj.score3[i]);
-                listView4.Items.Add(obj.shape[i]);
-
-            }
-        }
+       
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
             Frame.GoBack();
+        }
+
+        private void listBox_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+           
         }
     }
 

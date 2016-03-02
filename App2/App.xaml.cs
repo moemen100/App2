@@ -34,11 +34,16 @@ namespace App2
 
         private TransitionCollection transitions;
 
+        public int[] call1 { get; internal set; }
+        public int[] call2 { get; internal set; }
+        public int[] call3 { get; internal set; }
+        public int[] call4 { get; internal set; }
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
         /// </summary>
-       
+
         public App()
         {
             this.InitializeComponent();
