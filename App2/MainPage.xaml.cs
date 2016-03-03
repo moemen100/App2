@@ -62,6 +62,10 @@ namespace App2
         private int[] calli2 = new int[20];
         private int[] calli3 = new int[20];
         private int[] calli4 = new int[20];
+        private int[] lammati1 = new int[20];
+        private int[] lammati2 = new int[20];
+        private int[] lammati3 = new int[20];
+        private int[] lammati4 = new int[20];
         private int gamestate;
         private Majorcal mc = new Majorcal(0, 0, false, 0, 0, false, 0, 0, false, 0, 0, false, 0);
         private bool dashcall1=false;
@@ -362,7 +366,10 @@ namespace App2
                         score4.Text = scorei4[gameno].ToString();
                     }
                     button2.Content = "Start Round";
-
+                    lammati1[gameno] = int.Parse(lammat1.Text);
+                    lammati2[gameno] = int.Parse(lammat2.Text);
+                    lammati3[gameno] = int.Parse(lammat3.Text);
+                    lammati4[gameno] = int.Parse(lammat4.Text);
                     lammat1.Visibility = Visibility.Collapsed;
                     lammat2.Visibility = Visibility.Collapsed;
                     lammat3.Visibility = Visibility.Collapsed;
@@ -1219,6 +1226,10 @@ namespace App2
             obj.call2 = calli2;
             obj.call3 = calli3;
             obj.call4 = calli4;
+            obj.lammat1 = lammati1;
+            obj.lammat2 = lammati2;
+            obj.lammat3 = lammati3;
+            obj.lammat4 = lammati4;
             obj.shape = shape;
             Frame.Navigate(typeof(BlankPage1));
             
@@ -1265,11 +1276,13 @@ namespace App2
         }
 
         private void button3_Click(object sender, RoutedEventArgs e)
-        {if (i > 0 && gameno > 0)
-            {
+        {if (i >= 0 && gameno >= 0)
+            {if(i>0)
                 i--;
+            
                 if (i % 2 != 0)
                 {
+                    iscall1 = false;
                     gameno--;
                     score1.Text = scorei1[gameno].ToString();
                     score2.Text = scorei2[gameno].ToString();
@@ -1279,6 +1292,14 @@ namespace App2
                     call2.Text = calli2[gameno+1].ToString();
                     call3.Text = calli3[gameno+1].ToString();
                     call4.Text = calli4[gameno+1].ToString();
+                    if (flipView.Visibility == Visibility.Visible)
+                        image_call1.Visibility = Visibility.Visible;
+                    if (flipView2.Visibility == Visibility.Visible)
+                        image_call2.Visibility = Visibility.Visible;
+                    if (flipView3.Visibility == Visibility.Visible)
+                        image_call3.Visibility = Visibility.Visible;
+                    if (flipView4.Visibility == Visibility.Visible)
+                        image_call4.Visibility = Visibility.Visible;
                     image_Call1.Visibility = Visibility.Collapsed;
                     image_Call2.Visibility = Visibility.Collapsed;
                     image_Call3.Visibility = Visibility.Collapsed;
@@ -1297,13 +1318,19 @@ namespace App2
                     lammat4.Text = "Lammat";
                     button2.Content = "Calculate Score";
                     
+                    
                 }
                 else
                 {
+                    iscall1 = true;
                     call1.Visibility = Visibility.Visible;
                     call2.Visibility = Visibility.Visible;
                     call3.Visibility = Visibility.Visible;
                     call4.Visibility = Visibility.Visible;
+                    image_call1.Visibility = Visibility.Collapsed;
+                    image_call2.Visibility = Visibility.Collapsed;
+                    image_call3.Visibility = Visibility.Collapsed;
+                    image_call4.Visibility = Visibility.Collapsed;
                     image_Call1.Visibility = Visibility.Visible;
                     image_Call2.Visibility = Visibility.Visible;
                     image_Call3.Visibility = Visibility.Visible;
@@ -1435,26 +1462,33 @@ namespace App2
 
             if (call1.Visibility==Visibility.Visible)
             {
-                
-                if(call1.Text!="Choose Call"&& call1.Text != "DC")
+
+                if (call1.Text != "Choose Call" && call1.Text != "DC")
                 {
                     shape[20] = int.Parse(call1.Text);
                 }
+                else
+                    shape[20] = -1;
 
                 if (call2.Text != "Choose Call" && call2.Text != "DC")
                 {
                     shape[21] = int.Parse(call2.Text);
                 }
-
+                else
+                    shape[21] = -1;
                 if (call3.Text != "Choose Call" && call3.Text != "DC")
                 {
                     shape[22] = int.Parse(call3.Text);
                 }
+                else
+                shape[22] = -1;
 
                 if (call4.Text != "Choose Call" && call4.Text != "DC")
                 {
                     shape[23] = int.Parse(call4.Text);
                 }
+                else
+                    shape[23] = -1;
                 if (shape[20] > shape[21] && shape[20] > shape[22] && shape[20] > shape[23])
                 {   flipView.Visibility = Visibility.Visible;
                     flipView2.Visibility = Visibility.Collapsed;

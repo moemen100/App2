@@ -9,27 +9,36 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid Margin="0,0.333,0,-0.333">
-        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="630" Margin="0,75,0,-78" Width="400" IsSynchronizedWithCurrentItem="False" ManipulationMode="None" Background="#CC0A0A0A" PointerPressed="listBox_PointerPressed" VerticalAlignment="Center">
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="630" Margin="0,75,0,-78" Width="400" IsSynchronizedWithCurrentItem="False" ManipulationMode="None" Background="#CC0A0A0A" VerticalAlignment="Center">
             <GridView x:Name="gridView" Height="630" Width="568" FontFamily="Global User Interface" Margin="0,-7,0,0">
-                <ListView x:Name="game_no" Height="620" Width="15" Background="#FFFDFDFD" Margin="-22,0,0,0" BorderThickness="0,0,1,0"/>
-                <ListView x:Name="shape" Height="620" Width="20" Background="#FFFDFDFD" Margin="-65,0,0,0" BorderThickness="0,0,1,0" BorderBrush="Black"/>
-                <ListView x:Name="call1" Height="620" Width="25" Background="#FFFDFDFD" Margin="-100,0,0,0" BorderThickness="0,0,1,0" BorderBrush="Black"/>
-                <ListView x:Name="lammat1" Height="620" Width="25" Background="#FFFDFDFD" Margin="-129,0,0,0" BorderThickness="0,0,1,0" BorderBrush="Black"/>
-                <ListView x:Name="score1" Height="620" Width="30" Background="#FFFDFDFD" Margin="-152,0,0,0" BorderThickness="0" BorderBrush="Black"/>
-                <ListView x:Name="call2" Height="620" Width="25" Background="#FFFDFDFD" Margin="-158,0,0,0"/>
-                <ListView x:Name="lammat2" Height="620" Width="25" Background="#FFFDFDFD" Margin="-181,0,0,0"/>
-                <ListView x:Name="score2" Height="620" Width="30" Background="#FFFDFDFD" Margin="-201,0,0,0"/>
-                <ListView x:Name="call3" Height="620" Width="25" Background="#FFFDFDFD" Margin="-222,0,0,0"/>
-                <ListView x:Name="lammat3" Height="620" Width="25" Background="#FFFDFDFD" Margin="-246,0,0,0"/>
-                <ListView x:Name="score3" Height="620" Width="30" Background="#FFFDFDFD" Margin="-265,0,0,0"/>
-                <ListView x:Name="call4" Height="620" Width="25" Background="#FFFDFDFD" Margin="-284,0,0,0"/>
-                <ListView x:Name="lammat4" Height="620" Width="25" Background="#FFFDFDFD" Margin="-308,0,0,0"/>
-                <ListView x:Name="score4" Height="620" Width="30" Background="#FFFDFDFD" Margin="-327,0,0,0"/>
+                <ListView x:Name="game_no" Height="620" Width="25" Background="#FFFDFDFD" Margin="-22,0,0,0" BorderThickness="0,0,0,0"/>
+                <ListView x:Name="shape" Height="620" Width="20" Background="#FFFDFDFD" Margin="-52,0,0,0" BorderThickness="0,0,0,0" BorderBrush="Black"/>
+                <ListView x:Name="call1" Height="620" Width="25" Background="#FFFDFDFD" Margin="-82,0,0,0" BorderThickness="0,0,0,0" BorderBrush="Black"/>
+                <ListView x:Name="lammat1" Height="620" Width="25" Background="#FFFDFDFD" Margin="-109,0,0,0" BorderThickness="0,0,0,0" BorderBrush="Black"/>
+                <ListView x:Name="score1" Height="620" Width="30" Background="#FFFDFDFD" Margin="-130,0,0,0" BorderThickness="0" BorderBrush="Black"/>
+                <ListView x:Name="call2" Height="620" Width="25" Background="#FFFDFDFD" Margin="-145,0,0,0"/>
+                <ListView x:Name="lammat2" Height="620" Width="25" Background="#FFFDFDFD" Margin="-172,0,0,0"/>
+                <ListView x:Name="score2" Height="620" Width="30" Background="#FFFDFDFD" Margin="-194,0,0,0"/>
+                <ListView x:Name="call3" Height="620" Width="25" Background="#FFFDFDFD" Margin="-209,0,0,0"/>
+                <ListView x:Name="lammat3" Height="620" Width="25" Background="#FFFDFDFD" Margin="-235,0,0,0"/>
+                <ListView x:Name="score3" Height="620" Width="30" Background="#FFFDFDFD" Margin="-257,0,0,0"/>
+                <ListView x:Name="call4" Height="620" Width="25" Background="#FFFDFDFD" Margin="-272,0,0,0"/>
+                <ListView x:Name="lammat4" Height="620" Width="25" Background="#FFFDFDFD" Margin="-298,0,0,0"/>
+                <ListView x:Name="score4" Height="620" Width="30" Background="#FFFDFDFD" Margin="-320,0,0,0"/>
             </GridView>
         </ListBox>
         <Button x:Name="button" Content="Back" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Click="button_Click"/>
-        <Border  HorizontalAlignment="Left" Height="27" Margin="43,53,0,0"  VerticalAlignment="Top" Width="80" Background="White">
-            <TextBlock x:Name="name1" HorizontalAlignment="Left" Margin="0,0,0,-0.333" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="27" Width="80" Foreground="#FF080808" FontSize="19"/>
+        <Border  HorizontalAlignment="Left" Height="29" Margin="49,51,0,0"  VerticalAlignment="Top" Width="84" Background="White"  >
+            <TextBlock x:Name="name1" TextWrapping="Wrap" Text="TextBlock" Foreground="#FF080808"  FontSize="19"/>
+        </Border>
+        <Border  HorizontalAlignment="Left" Height="29" Margin="138,51,0,0"  VerticalAlignment="Top" Width="82" Background="White"  >
+        <TextBlock x:Name="name2" TextWrapping="Wrap" Text="TextBlock" Foreground="#FF080808"  FontSize="19"/>
+        </Border>
+        <Border  HorizontalAlignment="Left" Height="29" Margin="224,51,0,0"  VerticalAlignment="Top" Width="82" Background="White" >
+        <TextBlock x:Name="name3" TextWrapping="Wrap" Text="TextBlock" Foreground="#FF080808"  FontSize="19"/>
+        </Border>
+        <Border  HorizontalAlignment="Left" Height="29" Margin="310,51,0,0"  VerticalAlignment="Top" Width="82" Background="White"  >
+        <TextBlock x:Name="name4" TextWrapping="Wrap" Text="TextBlock" Foreground="#FF080808"  FontSize="19"/>
         </Border>
 
 

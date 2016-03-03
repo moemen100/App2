@@ -38,15 +38,13 @@ namespace App2
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             var obj = App.Current as App;
-            TextBlock temp = new TextBlock();
-            temp.FontSize = 18;
-            Image temp2 = new Image();
-            BitmapImage bitmapImage = new BitmapImage();
+            TextBlock temp;
 
 
-
-            for (int i = 0; i <= obj.gameno; i++)
+            for (int i = 1; i <= obj.gameno; i++)
             {
+                temp = new TextBlock();
+                temp.FontSize = 18;
                 temp.Text = obj.gameno.ToString();
                 game_no.Items.Add(temp);
                 temp = new TextBlock(); temp.FontSize = 18;
@@ -73,30 +71,52 @@ namespace App2
                 temp = new TextBlock(); temp.FontSize = 18;
                 temp.Text = obj.call4[i].ToString();
                 call4.Items.Add(temp);
-
-
-
-
-
-
+                temp = new TextBlock(); temp.FontSize = 18;
+                temp.Text = obj.lammat1[i].ToString();
+                lammat1.Items.Add(temp);
+                temp = new TextBlock(); temp.FontSize = 18;
+                temp.Text = obj.lammat2[i].ToString();
+                lammat2.Items.Add(temp);
+                temp = new TextBlock(); temp.FontSize = 18;
+                temp.Text = obj.lammat3[i].ToString();
+                lammat3.Items.Add(temp);
+                temp = new TextBlock(); temp.FontSize = 18;
+                temp.Text = obj.lammat4[i].ToString();
+                lammat4.Items.Add(temp);
+                if(obj.shape[i]==0)
+                {
+                    temp = new TextBlock(); temp.FontSize = 18;
+                    temp.Text = "☼";
+                }
+                if (obj.shape[i] == 1)
+                {
+                    temp = new TextBlock(); temp.FontSize = 18;
+                    temp.Text = "♠";
+                }
+                if (obj.shape[i] == 2)
+                {
+                    temp = new TextBlock(); temp.FontSize = 18;
+                    temp.Text = "♥";
+                }
+                if (obj.shape[i] == 3)
+                {
+                    temp = new TextBlock(); temp.FontSize = 18;
+                    temp.Text = "♦";
+                }
+                if (obj.shape[i] == 4)
+                {
+                    temp = new TextBlock(); temp.FontSize = 18;
+                    temp.Text = "♣";
+                }
+                shape.Items.Add(temp);               
 
             }
-
-
-        }
+        }      
        
-
-       
-
         private void button_Click(object sender, RoutedEventArgs e)
         {
             Frame.GoBack();
-        }
-
-        private void listBox_PointerPressed(object sender, PointerRoutedEventArgs e)
-        {
-           
-        }
+        }       
     }
 
 

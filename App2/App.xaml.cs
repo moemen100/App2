@@ -38,6 +38,10 @@ namespace App2
         public int[] call2 { get; internal set; }
         public int[] call3 { get; internal set; }
         public int[] call4 { get; internal set; }
+        public int[] lammat1 { get; internal set; }
+        public int[] lammat2 { get; internal set; }
+        public int[] lammat4 { get; internal set; }
+        public int[] lammat3 { get; internal set; }
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
