@@ -104,7 +104,7 @@
         <TextBlock x:Name="call1" HorizontalAlignment="Left" Margin="10,154,0,0" TextWrapping="Wrap" Text="Choose Call" VerticalAlignment="Top" Width="109" Height="39" FontSize="16" LayoutUpdated="call1_LayoutUpdated"/>
 
         <Border BorderThickness="0" HorizontalAlignment="Left" Height="273" VerticalAlignment="Top" Width="203" Margin="197,53,0,0" Background="#FF14175B">
-            <TextBlock x:Name="name2" TextWrapping="Wrap" Text="TextBlock" Margin="9.167,-0.833,32.5,229.5" FontSize="32"/>
+            <TextBlock x:Name="name2" TextWrapping="Wrap" Text="Name2" Margin="9.167,-0.833,32.5,229.5" FontSize="32"/>
         </Border>
         <FlipView x:Name="flipView2" Canvas.Left="124" Canvas.Top="152" Height="48" Width="66" Margin="323,105,11,487" Visibility="Collapsed">
             <FlipView.Background>
@@ -139,9 +139,9 @@
             <Image  Source="Assets/cards-club.png" />
         </FlipView>
         <Button x:Name="addname" Content="Add name" HorizontalAlignment="Left" Margin="280,0,0,0" VerticalAlignment="Top" Click="button_Click"/>
-        <Button x:Name="button1" Content="Show Table" HorizontalAlignment="Left" Margin="280,592,0,-10" VerticalAlignment="Stretch" Click="button1_Click"/>
-        <Button x:Name="button2" Content="Start Round" HorizontalAlignment="Left" Margin="-3,592,0,-9" VerticalAlignment="Top" Click="button2_Click"/>
-        <Button x:Name="button3" Content="Back" HorizontalAlignment="Left" Margin="166,592,0,-9" VerticalAlignment="Top" Click="button3_Click"/>
+        <Button x:Name="button1" Content="Show Table" HorizontalAlignment="Left" Margin="280,592,0,-10" VerticalAlignment="Top" Click="button1_Click" Height="58"/>
+        <Button x:Name="button2" Content="Start Round" HorizontalAlignment="Left" Margin="5,592,0,-9" VerticalAlignment="Top" Click="button2_Click"/>
+        <Button x:Name="button3" Content="Delete Last" HorizontalAlignment="Left" Margin="160,592,0,-9" VerticalAlignment="Top" Click="button3_Click"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="5,10,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="233" PointerPressed="textBox_PointerPressed"/>
         <TextBlock x:Name="call3" HorizontalAlignment="Left" Margin="0,434,0,0" TextWrapping="Wrap" Text="Choose Call" VerticalAlignment="Top" Width="107" Height="41" FontSize="16"/>
         <TextBlock x:Name="call4" HorizontalAlignment="Left" Margin="202,436,0,165" TextWrapping="Wrap" Text="Choose Call" Width="84" FontSize="16"/>
@@ -155,9 +155,9 @@
         <TextBlock x:Name="score1" HorizontalAlignment="Left" Margin="5,97,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="54" Width="102" FontSize="45.333"/>
         <TextBlock x:Name="score4" HorizontalAlignment="Left" Margin="202,377,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="54" Width="93" FontSize="45.333"/>
         <TextBlock x:Name="score3" HorizontalAlignment="Left" Margin="0,375,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="54" Width="107" FontSize="45.333"/>
-        <TextBlock x:Name="name4" HorizontalAlignment="Left" Margin="202,331,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="54" Width="187" FontSize="32"/>
-        <TextBlock x:Name="name3" HorizontalAlignment="Left" Margin="5,331,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="54" Width="187" FontSize="32"/>
-        <TextBlock x:Name="name1" TextWrapping="Wrap" Text="TextBlock" Margin="5,54,235,543" FontSize="32"/>
+        <TextBlock x:Name="name4" HorizontalAlignment="Left" Margin="202,331,0,0" TextWrapping="Wrap" Text="Name4" VerticalAlignment="Top" Height="54" Width="187" FontSize="32"/>
+        <TextBlock x:Name="name3" HorizontalAlignment="Left" Margin="5,331,0,0" TextWrapping="Wrap" Text="Name3" VerticalAlignment="Top" Height="54" Width="187" FontSize="32"/>
+        <TextBlock x:Name="name1" TextWrapping="Wrap" Text="Name1" Margin="5,54,235,543" FontSize="32"/>
         <ListBox x:Name="listBox_4" Height="199.983" Margin="268.491,458.926,0,-18.909"  Width="70.376" VerticalAlignment="Top" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Visibility="Collapsed">
             <ListBox.RenderTransform>
                 <CompositeTransform Rotation="-90.378"/>
@@ -408,8 +408,8 @@
         <Image x:Name="image_Lammat3" Height="40" Width="75" Source="Assets/edit.png" Margin="112,474,213,126" PointerPressed="image_Copy_2PointerPressed" Visibility="Collapsed"/>
         <Image x:Name="image_Call4" Height="40" Width="75" Source="Assets/edit.png" Margin="315,431,10,169" PointerPressed="image_Copy_3PointerPressed"/>
         <Image x:Name="image_Lammat4" Height="40" Width="75" Source="Assets/edit.png" Margin="314,476,11,124" PointerPressed="image_Copy_3PointerPressed" Visibility="Collapsed"/>
-        <TextBlock x:Name="gamest" HorizontalAlignment="Left" Margin="5,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="1.019,3.333" Height="49" Width="192" Visibility="Collapsed" FontSize="21.333"/>
-        <TextBlock x:Name="gamenumber" HorizontalAlignment="Left" Margin="202,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="191" Visibility="Collapsed" FontSize="21.333"/>
+        <TextBlock x:Name="gamest" HorizontalAlignment="Left" Margin="5,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="1.019,3.333" Height="44" Width="182" FontSize="21.333" Visibility="Collapsed"/>
+        <TextBlock x:Name="gamenumber" HorizontalAlignment="Left" Margin="206,0,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="187" FontSize="21.333" Height="44" Visibility="Collapsed"/>
         <Image x:Name="image_call1" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="35" Margin="130,149,0,0" Source="Assets/c-400.png" RenderTransformOrigin="1.225,0.583" Visibility="Collapsed"/>
         <Image x:Name="image_call2" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="35" Margin="325,149,0,0" Source="Assets/c-400.png" RenderTransformOrigin="1.225,0.583" Visibility="Collapsed"/>
         <Image x:Name="image_call4" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="35" Margin="325,429,0,0" Source="Assets/c-400.png" RenderTransformOrigin="1.225,0.583" Visibility="Collapsed"/>
@@ -423,6 +423,8 @@
             <Button x:Name="wh_Call_done" Content="Done" Canvas.Left="144" Canvas.Top="492" Width="159" Height="67" FontSize="32" Click="wh_Call_done_Click"/>
 
         </Canvas>
+
+
 
 
     </Grid>

@@ -33,7 +33,7 @@ namespace App2
             this.InitializeComponent();
 
             this.NavigationCacheMode = NavigationCacheMode.Required;
-           
+
         }
 
         /// <summary>
@@ -52,6 +52,7 @@ namespace App2
             // this event is handled for you.
 
         }
+        
         private int i;
         private int gameno;
         private int[] scorei1 = new int[20];
@@ -68,11 +69,11 @@ namespace App2
         private int[] lammati4 = new int[20];
         private int gamestate;
         private Majorcal mc = new Majorcal(0, 0, false, 0, 0, false, 0, 0, false, 0, 0, false, 0);
-        private bool dashcall1=false;
-        private bool dashcall2=false;
-        private bool dashcall3=false;
-        private bool dashcall4=false;
-        private bool iscall1=true;
+        private bool dashcall1 = false;
+        private bool dashcall2 = false;
+        private bool dashcall3 = false;
+        private bool dashcall4 = false;
+        private bool iscall1 = true;
         private bool namesadded = false;
         BlankPage1 p = new BlankPage1();
         private int sa3ayda = 1;
@@ -88,7 +89,7 @@ namespace App2
                     i--;
                 }
                 else {
-                   name1.Text = textBox.Text;
+                    name1.Text = textBox.Text;
                     textBox.Text = "";
                 }
 
@@ -102,7 +103,7 @@ namespace App2
                 else {
                     name2.Text = textBox.Text;
                     textBox.Text = "";
-                    
+
 
                 }
             }
@@ -120,11 +121,12 @@ namespace App2
                 }
             }
             if (i == 4)
-            { if (textBox.Text.Equals(""))
+            {
+                if (textBox.Text.Equals(""))
                 {
                     i--;
                 }
-                else { 
+                else {
                     name4.Text = textBox.Text;
                     textBox.Text = "";
                 }
@@ -144,8 +146,9 @@ namespace App2
 
         private async void button2_Click(object sender, RoutedEventArgs e)
         {
-            if(namesadded)
-            {  i++;
+            if (namesadded)
+            {
+                i++;
                 if (i % 2 == 0)
                 {
                     if (lammat1.Text == "Lammat")
@@ -566,27 +569,31 @@ namespace App2
 
                     }
                     if (flipView.Visibility == Visibility.Visible)
-                    { image_call1.Visibility = Visibility.Visible;
-                        shape[gameno + 1]=flipView.SelectedIndex;
+                    {
+                        image_call1.Visibility = Visibility.Visible;
+                        shape[gameno + 1] = flipView.SelectedIndex;
                     }
                     if (flipView2.Visibility == Visibility.Visible)
-                    { image_call2.Visibility = Visibility.Visible;
-                        shape[gameno + 1]=flipView.SelectedIndex;
+                    {
+                        image_call2.Visibility = Visibility.Visible;
+                        shape[gameno + 1] = flipView.SelectedIndex;
                     }
                     if (flipView3.Visibility == Visibility.Visible)
-                    { image_call3.Visibility = Visibility.Visible;
+                    {
+                        image_call3.Visibility = Visibility.Visible;
                         shape[gameno + 1] = flipView.SelectedIndex;
                     }
                     if (flipView4.Visibility == Visibility.Visible)
-                    { image_call4.Visibility = Visibility.Visible;
+                    {
+                        image_call4.Visibility = Visibility.Visible;
                         shape[gameno + 1] = flipView.SelectedIndex;
                     }
 
-                    
-                        
+
+
                     button2.Content = "Calculate score";
 
-                   
+
                     lammat1.Visibility = Visibility.Visible;
                     lammat2.Visibility = Visibility.Visible;
                     lammat3.Visibility = Visibility.Visible;
@@ -621,17 +628,19 @@ namespace App2
 
 
 
-                    }
+        }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
-        {if(iscall1)
+        {
+            if (iscall1)
                 call4.Text = "DC";
-            else { 
-            lammat4.Text = "Dc"; }
+            else {
+                lammat4.Text = "Dc";
+            }
             listBox_4.Visibility = Visibility.Collapsed;
         }
 
-     
+
         private void i2_Click(object sender, RoutedEventArgs e)
         {
             if (iscall1)
@@ -765,7 +774,7 @@ namespace App2
         {
             if (iscall1)
                 call3.Text = "DC";
-           
+
             else
                 lammat3.Text = "DC";
             listBox_3.Visibility = Visibility.Collapsed;
@@ -775,7 +784,7 @@ namespace App2
         {
             if (iscall1)
                 call3.Text = "0";
-             else
+            else
                 lammat3.Text = "0";
             listBox_3.Visibility = Visibility.Collapsed;
 
@@ -785,7 +794,7 @@ namespace App2
         {
             if (iscall1)
                 call3.Text = "1";
-             else
+            else
                 lammat3.Text = "1";
             listBox_3.Visibility = Visibility.Collapsed;
 
@@ -795,7 +804,7 @@ namespace App2
         {
             if (iscall1)
                 call3.Text = "2";
-             else
+            else
                 lammat3.Text = "2";
             listBox_3.Visibility = Visibility.Collapsed;
 
@@ -805,7 +814,7 @@ namespace App2
         {
             if (iscall1)
                 call3.Text = "3";
-             else
+            else
                 lammat3.Text = "3";
             listBox_3.Visibility = Visibility.Collapsed;
 
@@ -815,7 +824,7 @@ namespace App2
         {
             if (iscall1)
                 call3.Text = "4";
-             else
+            else
                 lammat3.Text = "4";
             listBox_3.Visibility = Visibility.Collapsed;
 
@@ -825,7 +834,7 @@ namespace App2
         {
             if (iscall1)
                 call3.Text = "5";
-             else
+            else
                 lammat3.Text = "5";
             listBox_3.Visibility = Visibility.Collapsed;
 
@@ -835,7 +844,7 @@ namespace App2
         {
             if (iscall1)
                 call3.Text = "6";
-             else
+            else
                 lammat3.Text = "6";
             listBox_3.Visibility = Visibility.Collapsed;
 
@@ -845,7 +854,7 @@ namespace App2
         {
             if (iscall1)
                 call3.Text = "7";
-             else
+            else
                 lammat3.Text = "7";
             listBox_3.Visibility = Visibility.Collapsed;
 
@@ -855,7 +864,7 @@ namespace App2
         {
             if (iscall1)
                 call3.Text = "8";
-             else
+            else
                 lammat3.Text = "8";
             listBox_3.Visibility = Visibility.Collapsed;
 
@@ -865,7 +874,7 @@ namespace App2
         {
             if (iscall1)
                 call3.Text = "9";
-             else
+            else
                 lammat3.Text = "9";
             listBox_3.Visibility = Visibility.Collapsed;
 
@@ -876,7 +885,7 @@ namespace App2
         {
             if (iscall1)
                 call3.Text = "10";
-             else
+            else
                 lammat3.Text = "10";
             listBox_3.Visibility = Visibility.Collapsed;
 
@@ -886,7 +895,7 @@ namespace App2
         {
             if (iscall1)
                 call3.Text = "11";
-             else
+            else
                 lammat3.Text = "11";
             listBox_3.Visibility = Visibility.Collapsed;
 
@@ -896,7 +905,7 @@ namespace App2
         {
             if (iscall1)
                 call3.Text = "12";
-             else
+            else
                 lammat3.Text = "12";
             listBox_3.Visibility = Visibility.Collapsed;
 
@@ -906,7 +915,7 @@ namespace App2
         {
             if (iscall1)
                 call3.Text = "13";
-             else
+            else
                 lammat3.Text = "13";
             listBox_3.Visibility = Visibility.Collapsed;
 
@@ -919,7 +928,7 @@ namespace App2
             else
                 lammat2.Text = "DC";
             listBox_2.Visibility = Visibility.Collapsed;
-             
+
         }
 
         private void i32_Click(object sender, RoutedEventArgs e)
@@ -986,7 +995,7 @@ namespace App2
         {
             if (iscall1)
                 call2.Text = "6";
-           else
+            else
                 lammat2.Text = "6";
             listBox_2.Visibility = Visibility.Collapsed;
 
@@ -1054,8 +1063,9 @@ namespace App2
         }
 
         private void i45_Click(object sender, RoutedEventArgs e)
-        {if(iscall1)
-            call2.Text = "13";
+        {
+            if (iscall1)
+                call2.Text = "13";
             else
                 lammat2.Text = "13";
             listBox_2.Visibility = Visibility.Collapsed;
@@ -1230,19 +1240,23 @@ namespace App2
             obj.lammat2 = lammati2;
             obj.lammat3 = lammati3;
             obj.lammat4 = lammati4;
+            obj.name1 = name1.Text;
+            obj.name2 = name2.Text;
+            obj.name3 = name3.Text;
+            obj.name4 = name4.Text;
             obj.shape = shape;
             Frame.Navigate(typeof(BlankPage1));
-            
+
 
 
 
         }
-       
+
 
 
         private void image_Copy_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
-           listBox_1.Visibility= Visibility.Visible;
+            listBox_1.Visibility = Visibility.Visible;
             if (!iscall1)
                 i46.Visibility = Visibility.Collapsed;
             else
@@ -1276,10 +1290,12 @@ namespace App2
         }
 
         private void button3_Click(object sender, RoutedEventArgs e)
-        {if (i >= 0 && gameno >= 0)
-            {if(i>0)
-                i--;
-            
+        {
+            if (i >= 0 && gameno >= 0)
+            {
+                if (i > 0)
+                    i--;
+
                 if (i % 2 != 0)
                 {
                     iscall1 = false;
@@ -1288,10 +1304,10 @@ namespace App2
                     score2.Text = scorei2[gameno].ToString();
                     score3.Text = scorei3[gameno].ToString();
                     score4.Text = scorei4[gameno].ToString();
-                    call1.Text = calli1[gameno+1].ToString();
-                    call2.Text = calli2[gameno+1].ToString();
-                    call3.Text = calli3[gameno+1].ToString();
-                    call4.Text = calli4[gameno+1].ToString();
+                    call1.Text = calli1[gameno + 1].ToString();
+                    call2.Text = calli2[gameno + 1].ToString();
+                    call3.Text = calli3[gameno + 1].ToString();
+                    call4.Text = calli4[gameno + 1].ToString();
                     if (flipView.Visibility == Visibility.Visible)
                         image_call1.Visibility = Visibility.Visible;
                     if (flipView2.Visibility == Visibility.Visible)
@@ -1317,8 +1333,8 @@ namespace App2
                     lammat3.Text = "Lammat";
                     lammat4.Text = "Lammat";
                     button2.Content = "Calculate Score";
-                    
-                    
+
+
                 }
                 else
                 {
@@ -1348,7 +1364,7 @@ namespace App2
                     call3.Text = "Choose Call";
                     call4.Text = "Choose Call";
                     button2.Content = "Start Round";
-                    
+
                 }
             }
         }
@@ -1358,17 +1374,18 @@ namespace App2
             textBox.Text = "";
         }
 
-       
 
-        private  void wh_Call_done_Click(object sender, RoutedEventArgs e)
+
+        private void wh_Call_done_Click(object sender, RoutedEventArgs e)
         {
             if (wh_Call1.IsChecked.GetValueOrDefault() == true)
             {
-                
+
                 mc.iscall1 = true;
                 mc.iswith1 = false;
                 if (mc.iscall2)
-                { mc.iscall2 = false;
+                {
+                    mc.iscall2 = false;
                     mc.iswith2 = true;
                 }
                 if (mc.iscall3)
@@ -1379,12 +1396,12 @@ namespace App2
                 if (mc.iscall4)
                 {
                     mc.iscall4 = false;
-                    mc.iswith4= true;
+                    mc.iswith4 = true;
                 }
             }
-            if (wh_Call2.IsChecked.GetValueOrDefault()==true)
+            if (wh_Call2.IsChecked.GetValueOrDefault() == true)
             {
-                
+
                 mc.iscall2 = true;
                 mc.iswith2 = false;
                 if (mc.iscall1)
@@ -1405,7 +1422,7 @@ namespace App2
             }
             if (wh_Call3.IsChecked.GetValueOrDefault() == true)
             {
-                
+
                 mc.iscall3 = true;
                 mc.iswith3 = false;
                 if (mc.iscall2)
@@ -1426,7 +1443,7 @@ namespace App2
             }
             if (wh_Call4.IsChecked.GetValueOrDefault() == true)
             {
-               
+
                 mc.iscall4 = true;
                 mc.iswith4 = false;
                 if (mc.iscall2)
@@ -1460,7 +1477,7 @@ namespace App2
         private void call1_LayoutUpdated(object sender, object e)
         {
 
-            if (call1.Visibility==Visibility.Visible)
+            if (call1.Visibility == Visibility.Visible)
             {
 
                 if (call1.Text != "Choose Call" && call1.Text != "DC")
@@ -1481,7 +1498,7 @@ namespace App2
                     shape[22] = int.Parse(call3.Text);
                 }
                 else
-                shape[22] = -1;
+                    shape[22] = -1;
 
                 if (call4.Text != "Choose Call" && call4.Text != "DC")
                 {
@@ -1490,41 +1507,45 @@ namespace App2
                 else
                     shape[23] = -1;
                 if (shape[20] > shape[21] && shape[20] > shape[22] && shape[20] > shape[23])
-                {   flipView.Visibility = Visibility.Visible;
-                    flipView2.Visibility = Visibility.Collapsed;
-                    flipView3.Visibility = Visibility.Collapsed;
-                    flipView4.Visibility = Visibility.Collapsed;
-                }
-                
-                if (shape[21] > shape[20] && shape[21] > shape[22] && shape[21] > shape[23])
-                { flipView2.Visibility = Visibility.Visible;
-                    flipView4.Visibility = Visibility.Collapsed;
-                    flipView3.Visibility = Visibility.Collapsed;
-                    flipView.Visibility = Visibility.Collapsed;
-                }
-               
-                if (shape[22] > shape[21] && shape[22] > shape[20] && shape[22] > shape[23])
-                { flipView3.Visibility = Visibility.Visible;
-                    flipView2.Visibility = Visibility.Collapsed;
-                    flipView4.Visibility = Visibility.Collapsed;
-                    flipView.Visibility = Visibility.Collapsed;
-                }
-               
-                if (shape[23] > shape[20] && shape[23] > shape[22] && shape[23] > shape[21])
-                { flipView4.Visibility = Visibility.Visible;
-                    flipView3.Visibility = Visibility.Collapsed;
-                    flipView2.Visibility = Visibility.Collapsed;
-                    flipView.Visibility = Visibility.Collapsed;
-                }
-               if (flipView.Visibility == Visibility.Visible   && (shape[20]<shape[21] || shape[20] < shape[22] || shape[20] < shape[23]))
                 {
-                    flipView.Visibility= Visibility.Collapsed;
+                    flipView.Visibility = Visibility.Visible;
+                    flipView2.Visibility = Visibility.Collapsed;
+                    flipView3.Visibility = Visibility.Collapsed;
+                    flipView4.Visibility = Visibility.Collapsed;
+                }
+
+                if (shape[21] > shape[20] && shape[21] > shape[22] && shape[21] > shape[23])
+                {
+                    flipView2.Visibility = Visibility.Visible;
+                    flipView4.Visibility = Visibility.Collapsed;
+                    flipView3.Visibility = Visibility.Collapsed;
+                    flipView.Visibility = Visibility.Collapsed;
+                }
+
+                if (shape[22] > shape[21] && shape[22] > shape[20] && shape[22] > shape[23])
+                {
+                    flipView3.Visibility = Visibility.Visible;
+                    flipView2.Visibility = Visibility.Collapsed;
+                    flipView4.Visibility = Visibility.Collapsed;
+                    flipView.Visibility = Visibility.Collapsed;
+                }
+
+                if (shape[23] > shape[20] && shape[23] > shape[22] && shape[23] > shape[21])
+                {
+                    flipView4.Visibility = Visibility.Visible;
+                    flipView3.Visibility = Visibility.Collapsed;
+                    flipView2.Visibility = Visibility.Collapsed;
+                    flipView.Visibility = Visibility.Collapsed;
+                }
+                if (flipView.Visibility == Visibility.Visible && (shape[20] < shape[21] || shape[20] < shape[22] || shape[20] < shape[23]))
+                {
+                    flipView.Visibility = Visibility.Collapsed;
                 }
                 if (flipView2.Visibility == Visibility.Visible && (shape[21] < shape[20] || shape[21] < shape[22] || shape[21] < shape[23]))
                 {
                     flipView2.Visibility = Visibility.Collapsed;
                 }
-                if (flipView3.Visibility == Visibility.Visible &&( shape[22] < shape[21] || shape[22] < shape[20] || shape[22] < shape[23]))
+                if (flipView3.Visibility == Visibility.Visible && (shape[22] < shape[21] || shape[22] < shape[20] || shape[22] < shape[23]))
                 {
                     flipView3.Visibility = Visibility.Collapsed;
                 }
@@ -1536,6 +1557,9 @@ namespace App2
             }
 
         }
+
+        
+        
     }
 
 }

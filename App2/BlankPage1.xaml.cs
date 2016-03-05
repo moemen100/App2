@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Runtime.Serialization.Json;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -40,7 +43,10 @@ namespace App2
             var obj = App.Current as App;
             TextBlock temp;
 
-
+            name1.Text = obj.name1;
+            name2.Text = obj.name2;
+            name3.Text = obj.name3;
+            name4.Text = obj.name4;
             for (int i = 1; i <= obj.gameno; i++)
             {
                 temp = new TextBlock();
@@ -115,8 +121,154 @@ namespace App2
        
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            Frame.GoBack();
-        }       
+            Frame.Navigate(typeof(MainMenu));
+        }
+        private const string Jsonfile = "save.json";
+        private async void button1_Click(object sender, RoutedEventArgs e)
+        {
+            var obj = App.Current as App;
+
+            
+
+
+                bool p1added = false;
+                bool p2added = false;
+                bool p3added = false;
+                bool p4added = false;
+                List<int> sort = new List<int>();
+                sort.Add(obj.score1[obj.gameno]);
+                sort.Add(obj.score2[obj.gameno]);
+                sort.Add(obj.score3[obj.gameno]);
+                sort.Add(obj.score4[obj.gameno]);
+                sort.Sort();
+                List<Player_history> plhilist = await gethistorylist();
+
+
+
+                foreach (Player_history plhi in plhilist)
+                {
+
+                    if (plhi.name.Equals(name1.Text, StringComparison.OrdinalIgnoreCase))
+                    {
+                        if (sort.IndexOf(obj.score1[obj.gameno]) == 0)
+                            plhi.King = plhi.King + 1;
+                        if (sort.IndexOf(obj.score1[obj.gameno]) == 1)
+                            plhi.subking = plhi.subking + 1;
+                        if (sort.IndexOf(obj.score1[obj.gameno]) == 2)
+                            plhi.subkooz = plhi.subkooz + 1;
+                        if (sort.IndexOf(obj.score1[obj.gameno]) == 3)
+                            plhi.kooz = plhi.kooz + 1;
+                        p1added = true;
+                    }
+                    if (plhi.name.Equals(name2.Text, StringComparison.OrdinalIgnoreCase))
+                    {
+                        if (sort.IndexOf(obj.score2[obj.gameno]) == 0)
+                            plhi.King = plhi.King + 1;
+                        if (sort.IndexOf(obj.score2[obj.gameno]) == 1)
+                            plhi.subking = plhi.subking + 1;
+                        if (sort.IndexOf(obj.score2[obj.gameno]) == 2)
+                            plhi.subkooz = plhi.subkooz + 1;
+                        if (sort.IndexOf(obj.score2[obj.gameno]) == 3)
+                            plhi.kooz = plhi.kooz + 1;
+                        p2added = true;
+                    }
+                    if (plhi.name.Equals(name3.Text, StringComparison.OrdinalIgnoreCase))
+                    {
+                        if (sort.IndexOf(obj.score3[obj.gameno]) == 0)
+                            plhi.King = plhi.King + 1;
+                        if (sort.IndexOf(obj.score3[obj.gameno]) == 1)
+                            plhi.subking = plhi.subking + 1;
+                        if (sort.IndexOf(obj.score3[obj.gameno]) == 2)
+                            plhi.subkooz = plhi.subkooz + 1;
+                        if (sort.IndexOf(obj.score3[obj.gameno]) == 3)
+                            plhi.kooz = plhi.kooz + 1;
+                        p3added = true;
+                    }
+                    if (plhi.name.Equals(name4.Text, StringComparison.OrdinalIgnoreCase))
+                    {
+                        if (sort.IndexOf(obj.score4[obj.gameno]) == 0)
+                            plhi.King = plhi.King + 1;
+                        if (sort.IndexOf(obj.score4[obj.gameno]) == 1)
+                            plhi.subking = plhi.subking + 1;
+                        if (sort.IndexOf(obj.score4[obj.gameno]) == 2)
+                            plhi.subkooz = plhi.subkooz + 1;
+                        if (sort.IndexOf(obj.score4[obj.gameno]) == 3)
+                            plhi.kooz = plhi.kooz + 1;
+                        p4added = true;
+                    }
+
+
+
+                }
+                if (!p1added)
+                {
+                    if (sort.IndexOf(obj.score1[obj.gameno]) == 0)
+                        plhilist.Add(new Player_history(name1.Text, 1, 0, 0, 0));
+                    if (sort.IndexOf(obj.score1[obj.gameno]) == 1)
+                        plhilist.Add(new Player_history(name1.Text, 0, 1, 0, 0));
+                    if (sort.IndexOf(obj.score1[obj.gameno]) == 2)
+                        plhilist.Add(new Player_history(name1.Text, 0, 0, 1, 0));
+                    if (sort.IndexOf(obj.score1[obj.gameno]) == 3)
+                        plhilist.Add(new Player_history(name1.Text, 0, 0, 0, 1));
+                }
+                if (!p2added)
+                {
+                    if (sort.IndexOf(obj.score2[obj.gameno]) == 0)
+                        plhilist.Add(new Player_history(name2.Text, 1, 0, 0, 0));
+                    if (sort.IndexOf(obj.score2[obj.gameno]) == 1)
+                        plhilist.Add(new Player_history(name2.Text, 0, 1, 0, 0));
+                    if (sort.IndexOf(obj.score2[obj.gameno]) == 2)
+                        plhilist.Add(new Player_history(name2.Text, 0, 0, 1, 0));
+                    if (sort.IndexOf(obj.score2[obj.gameno]) == 3)
+                        plhilist.Add(new Player_history(name2.Text, 0, 0, 0, 1));
+                }
+                if (!p3added)
+                {
+                    if (sort.IndexOf(obj.score3[obj.gameno]) == 0)
+                        plhilist.Add(new Player_history(name3.Text, 1, 0, 0, 0));
+                    if (sort.IndexOf(obj.score3[obj.gameno]) == 1)
+                        plhilist.Add(new Player_history(name3.Text, 0, 1, 0, 0));
+                    if (sort.IndexOf(obj.score3[obj.gameno]) == 2)
+                        plhilist.Add(new Player_history(name3.Text, 0, 0, 1, 0));
+                    if (sort.IndexOf(obj.score3[obj.gameno]) == 3)
+                        plhilist.Add(new Player_history(name3.Text, 0, 0, 0, 1));
+                }
+                if (!p4added)
+                {
+                    if (sort.IndexOf(obj.score4[obj.gameno]) == 0)
+                        plhilist.Add(new Player_history(name4.Text, 1, 0, 0, 0));
+                    if (sort.IndexOf(obj.score4[obj.gameno]) == 1)
+                        plhilist.Add(new Player_history(name4.Text, 0, 1, 0, 0));
+                    if (sort.IndexOf(obj.score4[obj.gameno]) == 2)
+                        plhilist.Add(new Player_history(name4.Text, 0, 0, 1, 0));
+                    if (sort.IndexOf(obj.score4[obj.gameno]) == 3)
+                        plhilist.Add(new Player_history(name4.Text, 0, 0, 0, 1));
+                }
+
+
+                using (var stream = await ApplicationData.Current.LocalFolder.OpenStreamForWriteAsync(Jsonfile, CreationCollisionOption.ReplaceExisting))
+                {
+                    DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(List<Player_history>));
+                    serializer.WriteObject(stream, plhilist);
+
+                }
+                Frame.Navigate(typeof(MainMenu));
+            
+        }
+        private async Task<List<Player_history>> gethistorylist()
+        {
+            await ApplicationData.Current.LocalFolder.CreateFileAsync(Jsonfile, CreationCollisionOption.OpenIfExists);
+            var stream = await ApplicationData.Current.LocalFolder.OpenStreamForReadAsync(Jsonfile);
+            DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(List<Player_history>));
+            List<Player_history> plhi = (List<Player_history>)serializer.ReadObject(stream);
+            return plhi == null ? new List<Player_history>() : plhi;
+        }
+
+        private void image_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            if (Frame.CanGoBack)
+                Frame.GoBack();
+        }
     }
 
 

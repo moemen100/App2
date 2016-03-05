@@ -10,7 +10,7 @@
 
     <Grid Margin="0,0.333,0,-0.333">
         <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="630" Margin="0,75,0,-78" Width="400" IsSynchronizedWithCurrentItem="False" ManipulationMode="None" Background="#CC0A0A0A" VerticalAlignment="Center">
-            <GridView x:Name="gridView" Height="630" Width="568" FontFamily="Global User Interface" Margin="0,-7,0,0">
+            <GridView x:Name="gridView" Height="630" Width="571" FontFamily="Global User Interface">
                 <ListView x:Name="game_no" Height="620" Width="25" Background="#FFFDFDFD" Margin="-22,0,0,0" BorderThickness="0,0,0,0"/>
                 <ListView x:Name="shape" Height="620" Width="20" Background="#FFFDFDFD" Margin="-52,0,0,0" BorderThickness="0,0,0,0" BorderBrush="Black"/>
                 <ListView x:Name="call1" Height="620" Width="25" Background="#FFFDFDFD" Margin="-82,0,0,0" BorderThickness="0,0,0,0" BorderBrush="Black"/>
@@ -27,19 +27,21 @@
                 <ListView x:Name="score4" Height="620" Width="30" Background="#FFFDFDFD" Margin="-320,0,0,0"/>
             </GridView>
         </ListBox>
-        <Button x:Name="button" Content="Back" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Click="button_Click"/>
+        <Button x:Name="button" Content="Main Menu" HorizontalAlignment="Left" Margin="67,-10,0,0" VerticalAlignment="Top" Click="button_Click" Height="57" Width="116" FontSize="16"/>
         <Border  HorizontalAlignment="Left" Height="29" Margin="49,51,0,0"  VerticalAlignment="Top" Width="84" Background="White"  >
             <TextBlock x:Name="name1" TextWrapping="Wrap" Text="TextBlock" Foreground="#FF080808"  FontSize="19"/>
         </Border>
         <Border  HorizontalAlignment="Left" Height="29" Margin="138,51,0,0"  VerticalAlignment="Top" Width="82" Background="White"  >
-        <TextBlock x:Name="name2" TextWrapping="Wrap" Text="TextBlock" Foreground="#FF080808"  FontSize="19"/>
+            <TextBlock x:Name="name2" TextWrapping="Wrap" Text="TextBlock" Foreground="#FF080808"  FontSize="19"/>
         </Border>
         <Border  HorizontalAlignment="Left" Height="29" Margin="224,51,0,0"  VerticalAlignment="Top" Width="82" Background="White" >
-        <TextBlock x:Name="name3" TextWrapping="Wrap" Text="TextBlock" Foreground="#FF080808"  FontSize="19"/>
+            <TextBlock x:Name="name3" TextWrapping="Wrap" Text="TextBlock" Foreground="#FF080808"  FontSize="19"/>
         </Border>
         <Border  HorizontalAlignment="Left" Height="29" Margin="310,51,0,0"  VerticalAlignment="Top" Width="82" Background="White"  >
-        <TextBlock x:Name="name4" TextWrapping="Wrap" Text="TextBlock" Foreground="#FF080808"  FontSize="19"/>
+            <TextBlock x:Name="name4" TextWrapping="Wrap" Text="TextBlock" Foreground="#FF080808"  FontSize="19"/>
         </Border>
+        <Button x:Name="button1" Content="Save Ranks &amp; EndGame" HorizontalAlignment="Left" Margin="206,-10,0,0" VerticalAlignment="Top" Width="184" FontSize="14.667" Click="button1_Click"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="38" Margin="10,0,0,0" VerticalAlignment="Top" Width="52" Source="Assets/Back.png" PointerPressed="image_PointerPressed"/>
 
 
     </Grid>
