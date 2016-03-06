@@ -47,7 +47,7 @@ namespace App2
         private int Risk4 = 0;
         private int doub = 0;
         private int gameno;
-
+        public int gamestate;
         public Majorcal(int call1,int call2,int call3,int call4)
         {
             this.call1 = call1;
@@ -79,7 +79,8 @@ namespace App2
                 doub++;
             if (dash4)
                 doub++;
-            this.gameno = gameno;
+            
+
 
         }
         public void setrisk()
@@ -374,7 +375,7 @@ namespace App2
 
         public int getscore1(int score)
         {
-            c = new Cal(lammat1, call1, iscall1, iswith1, isdash1, onlywin1, onlylose1, Risk1);
+            c = new Cal(lammat1, call1, iscall1, iswith1, isdash1, onlywin1, onlylose1, Risk1,gamestate);
             c.setScore(score);
           
                 return c.getScore();
@@ -382,14 +383,14 @@ namespace App2
         }
         public int getscore2(int score)
         {
-            c = new Cal(lammat2, call2, iscall2, iswith2, isdash2, onlywin2, onlylose2, Risk2);
+            c = new Cal(lammat2, call2, iscall2, iswith2, isdash2, onlywin2, onlylose2, Risk2,gamestate);
             c.setScore(score);
            
                 return c.getScore() ;
         }
         public int getscore3(int score)
         {
-            c = new Cal(lammat3, call3, iscall3, iswith3, isdash3, onlywin3, onlylose3, Risk3);
+            c = new Cal(lammat3, call3, iscall3, iswith3, isdash3, onlywin3, onlylose3, Risk3,gamestate);
             c.setScore(score);
            
                 return c.getScore();
@@ -397,7 +398,7 @@ namespace App2
         }
         public int getscore4(int score)
         {
-            c = new Cal(lammat4, call4, iscall4, iswith4, isdash4, onlywin4, onlylose4, Risk4);
+            c = new Cal(lammat4, call4, iscall4, iswith4, isdash4, onlywin4, onlylose4, Risk4,gamestate);
             c.setScore(score);
            
                 return c.getScore();

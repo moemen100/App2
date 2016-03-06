@@ -31,6 +31,8 @@ namespace App2
         public int[] score4;
         public int[] shape;
         public int gameno;
+        public bool isoverlose;
+        public bool triplerisk;
 
         private TransitionCollection transitions;
 
@@ -46,6 +48,10 @@ namespace App2
         public String name2 { get; internal set; }
         public String name3 { get; internal set; }
         public String name4 { get; internal set; }
+        public bool winget13 { get; internal set; }
+        public bool newsupercall { get; internal set; }
+        public bool started { get; internal set; }
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().

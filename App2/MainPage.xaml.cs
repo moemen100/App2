@@ -50,7 +50,8 @@ namespace App2
             // Windows.Phone.UI.Input.HardwareButtons.BackPressed event.
             // If you are using the NavigationHelper provided by some templates,
             // this event is handled for you.
-
+            var obj = App.Current as App;
+            obj.started = true;
         }
         
         private int i;
@@ -331,6 +332,7 @@ namespace App2
                     }
                     mc.setrisk();
                     mc.setonlywinner();
+                    mc.gamestate = gamestate;
 
                     if (!mc.isSa3ayda() && !sa3ydaholder)
                     {

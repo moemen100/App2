@@ -23,19 +23,18 @@ namespace App2
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainMenu : Page
+    public sealed partial class settings : Page
     {
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
 
-        public MainMenu()
+        public settings()
         {
             this.InitializeComponent();
 
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
-
         }
 
         /// <summary>
@@ -109,39 +108,9 @@ namespace App2
 
         #endregion
 
-        private void button1_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(BasicPage1));
-        }
-
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate( typeof( MainPage));
-            
-            
-        }
-
-        private void button2_Click(object sender, RoutedEventArgs e)
-        {
-            
-            Application.Current.Exit();
-        }
-
-        private void Resume_Click(object sender, RoutedEventArgs e)
-        {if(Frame.CanGoBack)
-            Frame.Navigate(typeof(MainPage));
-
-        }
-
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        { var obj = App.Current as App;
-            if (Frame.CanGoBack&& obj.started)
-                Resume.Visibility = Visibility.Visible;
-        }
-
-        private void Settings_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(settings));
+            Frame.Navigate(typeof(MainMenu));
         }
     }
 }
