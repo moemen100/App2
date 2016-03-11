@@ -1,0 +1,516 @@
+<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EstimationCalculator"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:System="using:System"
+    x:Class="EstimationCalculator.MainPage"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid RenderTransformOrigin="0.373,0.505">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="97*"/>
+            <ColumnDefinition Width="77*"/>
+            <ColumnDefinition Width="43*"/>
+            <ColumnDefinition Width="95*"/>
+            <ColumnDefinition Width="137*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="117*"/>
+            <RowDefinition Height="72*"/>
+            <RowDefinition Height="53*"/>
+            <RowDefinition Height="54*"/>
+            <RowDefinition Height="12*"/>
+            <RowDefinition Height="75*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="47*"/>
+            <RowDefinition Height="87*"/>
+            <RowDefinition Height="57*"/>
+            <RowDefinition Height="54*"/>
+            <RowDefinition Height="73*"/>
+            <RowDefinition Height="49*"/>
+            <RowDefinition Height="22*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="1" Grid.RowSpan="6" Margin="5,40,0.667,0.5" Grid.ColumnSpan="3" >
+
+            <Border x:Name="b1" Opacity="0.985" Background="#FF3F055B" Margin="-21,10,-31,-64" BorderThickness="0"/>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,1.667,68.333,0.667" >
+            <TextBlock x:Name="call1" HorizontalAlignment="Left" Margin="0" TextWrapping="Wrap" Text="Choose Call" VerticalAlignment="Top" FontSize="17.333" LayoutUpdated="call1_LayoutUpdated" Width="76"/>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="4" Grid.RowSpan="4" Margin="0.333,-4,0,0.833" Grid.ColumnSpan="3" >
+            <Border BorderThickness="0" HorizontalAlignment="Left" Height="405" VerticalAlignment="Top" Width="266" Margin="0,53,0,-100" Background="#FF14175B">
+
+                <TextBlock x:Name="name2" TextWrapping="Wrap" Text="Name2" Margin="9,-1,32.833,341" FontSize="32"/>
+            </Border>
+        </Grid>
+
+        <FlipView x:Name="flipView2" Margin="44.333,7.333,26.333,24.333" Grid.Row="1" Grid.Column="5" Visibility="Collapsed">
+            <FlipView.Background>
+                <ImageBrush Stretch="Fill"/>
+            </FlipView.Background>
+            <Image  Source="Assets/2222.png" Margin="0,-5,-5.167,-4.833" RenderTransformOrigin="0.425,-0.493" />
+            <Image  Source="Assets/cards-spade.png"/>
+            <Image  Source="Assets/he.png" />
+            <Image  Source="Assets/c-d.png" />
+            <Image  Source="Assets/cards-club.png" />
+            <Image  Source="Assets/2222.png" Margin="0,-5,-5.167,-5" RenderTransformOrigin="0.425,-0.493" />
+        </FlipView>
+        <Grid Grid.Row="7" Grid.Column="4" Grid.RowSpan="6" Margin="0.333,4.833,0,38.833" Grid.ColumnSpan="3" >
+
+            <Border BorderThickness="0" HorizontalAlignment="Left" Height="372" VerticalAlignment="Top" Width="264" Margin="0,0,-9,-14" Background="#FF72022B" Padding="0"/>
+        </Grid>
+        <Grid Grid.Row="7" Grid.Column="1" Grid.RowSpan="6" Margin="0,0.833,0.667,28.833" Grid.ColumnSpan="3" >
+
+            <Border BorderThickness="0" HorizontalAlignment="Left" Height="369" VerticalAlignment="Top" Width="248" BorderBrush="Black" Background="#FF011F19" Padding="0" Margin="0,6,0,0"/>
+        </Grid>
+        <FlipView x:Name="flipView4" Margin="55.333,6.167,15.333,3.5" Grid.Row="8" Grid.Column="5" Visibility="Collapsed">
+            <FlipView.Background>
+                <ImageBrush Stretch="Fill"/>
+            </FlipView.Background>
+            <Image  Source="Assets/2222.png" Margin="-5,0,-5.167,-0.333" />
+            <Image  Source="Assets/cards-spade.png"/>
+            <Image  Source="Assets/he.png" />
+            <Image  Source="Assets/c-d.png" />
+            <Image  Source="Assets/cards-club.png" />
+        </FlipView>
+        <FlipView x:Name="flipView3" Margin="36.333,2.167,7.667,6.5" SelectedIndex="0" Grid.Row="8" Grid.ColumnSpan="2" Visibility="Collapsed" Grid.Column="2">
+            <FlipView.Background>
+                <ImageBrush Stretch="Fill"/>
+            </FlipView.Background>
+            <Image  Source="Assets/2222.png" Margin="0,0,-5.333,-0.667" />
+            <Image  Source="Assets/cards-spade.png"/>
+            <Image  Source="Assets/he.png" />
+            <Image  Source="Assets/c-d.png" />
+            <Image  Source="Assets/cards-club.png" />
+        </FlipView>
+        <Button x:Name="addname" Content="Add name" HorizontalAlignment="Left" Margin="3.333,0,0,0" VerticalAlignment="Top" Click="button_Click" Grid.Column="5" Height="58" Width="109"/>
+
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="5,10,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="233" PointerPressed="textBox_PointerPressed" Grid.ColumnSpan="5" Height="39"/>
+        <Grid Grid.Row="9" Grid.Column="1"  >
+            <TextBlock x:Name="call3" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Choose Call" VerticalAlignment="Top" FontSize="17.333" Margin="0"/>
+        </Grid>
+        <Grid Grid.Row="9" Grid.Column="4"  >
+            <TextBlock x:Name="call4" Margin="10,0,0,0" TextWrapping="Wrap" Text="Choose Call" FontSize="17.333" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2" Margin="0.333,1.667,121.333,0.667" >
+
+            <TextBlock x:Name="call2" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Choose Call" VerticalAlignment="Top" FontSize="17.333"/>
+        </Grid>
+
+        <Grid Grid.Row="10" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" >
+            <TextBlock x:Name="lammat3" HorizontalAlignment="Left" Margin="0" TextWrapping="Wrap" Text="Tricks" VerticalAlignment="Top" FontSize="18.667" Grid.Row="9" Grid.ColumnSpan="2" Grid.RowSpan="2" Visibility="Collapsed"/>
+        </Grid>
+        <Grid Grid.Row="10" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Left"  >
+            <TextBlock x:Name="lammat4" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Tricks" FontSize="18.667" Width="84" Visibility="Collapsed"/>
+        </Grid>
+        <Grid Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" >
+            <TextBlock x:Name="lammat1" HorizontalAlignment="Left"  TextWrapping="Wrap" Text="Tricks" VerticalAlignment="Bottom" Width="72" Height="40" FontSize="18.667" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Visibility="Collapsed"/>
+        </Grid>
+        <Grid Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2" Margin="0.333,0.333,121.333,0.833" >
+            <TextBlock x:Name="lammat2" HorizontalAlignment="Left" Margin="0" TextWrapping="Wrap" Text="Tricks" VerticalAlignment="Center" FontSize="18.667" Grid.Row="2" Grid.Column="4" Visibility="Collapsed"/>
+        </Grid>
+        <TextBlock x:Name="score2" HorizontalAlignment="Left" Margin="9.333,0.333,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="54" Width="89" FontSize="45.333" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="4"/>
+        <TextBlock x:Name="score1" HorizontalAlignment="Left" Margin="5,0.333,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="54" Width="102" FontSize="45.333" Grid.ColumnSpan="3" Grid.Row="1"/>
+        <TextBlock x:Name="score4" HorizontalAlignment="Left" Margin="5.333,7.167,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="54" Width="93" FontSize="45.333" Grid.Row="8" Grid.ColumnSpan="2" Grid.Column="4"/>
+        <TextBlock x:Name="score3" HorizontalAlignment="Left" Margin="0,5.167,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Height="54" Width="107" FontSize="45.333" Grid.Row="8" Grid.ColumnSpan="3"/>
+        <TextBlock x:Name="name4" HorizontalAlignment="Left" Margin="5.333,2.833,0,0" TextWrapping="Wrap" Text="Name4" VerticalAlignment="Top" Height="35" Width="187" FontSize="32" Grid.Row="7" Grid.ColumnSpan="2" Grid.Column="4"/>
+        <TextBlock x:Name="name3" HorizontalAlignment="Left" Margin="5,2.833,0,0" TextWrapping="Wrap" Text="Name3" VerticalAlignment="Top" Height="36" Width="187" FontSize="32" Grid.Row="7" Grid.ColumnSpan="4"/>
+        <Grid Grid.Row="0" Grid.Column="1" Margin="0,44,0.333,12.667" Grid.ColumnSpan="2">
+            <TextBlock x:Name="name1" TextWrapping="Wrap" Text="Name1" Margin="0,10,0,-10" FontSize="32"/>
+        </Grid>
+        <Grid Grid.Row="10" Grid.Column="4" Margin="28.333,53.833,-10,0.833" Grid.ColumnSpan="3" Grid.RowSpan="3" >
+            <ListBox x:Name="listBox_4" Height="221.66" Margin="43.533,-68.378,73.413,-45.283"  Width="67.053" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Visibility="Collapsed">
+                <ListBox.RenderTransform>
+                    <CompositeTransform Rotation="-90.378"/>
+                </ListBox.RenderTransform>
+                <Button x:Name="i1" Background="#FFEA4E4E" Content="DC" Click="Button_Click_1" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i2" Background="#FFEA4E4E" Content="0" Click="i2_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i3" Background="#FFEA4E4E" Content="1" Click="i3_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i4" Background="#FFEA4E4E" Content="2" Click="i4_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i5" Background="#FFEA4E4E" Content="3" Click="i5_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i6" Background="#FFEA4E4E" Content="4" Click="i6_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" FontFamily="Global User Interface" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i7" Background="#FFEA4E4E" Content="5" Click="i7_Click_1" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i8" Background="#FFEA4E4E" Content="6" Click="i8_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i9" Background="#FFEA4E4E" Content="7" Click="i9_Click" Foreground="#FF1D0505" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i10" Background="#FFEA5050" Content="8" Click="i10_Click" Foreground="#FF0F0E0E" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i11" Background="#FFEA4E4E" Content="9" Click="i11_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i12" Background="#FFEA4E4E" Content="10" Click="i12_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i13" Background="#FFEA5050" Content="11" Click="i13_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i14" Background="#FFEA4E4E" Content="12" Click="i14_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i15" Background="#FFEA4E4E" Content="13" Click="i15_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+            </ListBox>
+        </Grid>
+        <Grid Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,53.833,0.667,0.333" Grid.RowSpan="4">
+            <ListBox x:Name="listBox_3" Margin="63.318,-44.874,0,-6.035" VerticalAlignment="Top" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Width="62.622" Height="179.909" FontFamily="Global User Interface" BorderThickness="0" Visibility="Collapsed">
+                <ListBox.RenderTransform>
+                    <CompositeTransform Rotation="-90.378"/>
+                </ListBox.RenderTransform>
+                <Button x:Name="i16" Background="#FFEA4E4E" Content="DC" Click="i16_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i17" Background="#FFEA4E4E" Content="0" Click="i17_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i18" Background="#FFEA4E4E" Content="1" Click="i18_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i19" Background="#FFEA4E4E" Content="2" Click="i19_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i20" Background="#FFEA4E4E" Content="3" Click="i20_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i21" Background="#FFEA4E4E" Content="4" Click="i21_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i22" Background="#FFEA4E4E" Content="5" Click="i22_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i23" Background="#FFEA4E4E" Content="6" Click="i23_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i24" Background="#FFEA4E4E" Content="7" Click="i24_Click" Foreground="#FF1D0505" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i25" Background="#FFEA5050" Content="8" Click="i25_Click" Foreground="#FF0F0E0E" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i26" Background="#FFEA4E4E" Content="9" Click="i26_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i27" Background="#FFEA4E4E" Content="10" Click="i27_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i28" Background="#FFEA5050" Content="11" Click="i28_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i29" Background="#FFEA4E4E" Content="12" Click="i29_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i30" Background="#FFEA4E4E" Content="13" Click="i30_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" FontFamily="Global User Interface" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+            </ListBox>
+        </Grid>
+        <Grid Grid.Row="5" Grid.Column="5" Margin="12.333,4.5,-131,2.5" Grid.ColumnSpan="2" >
+            <ListBox x:Name="listBox_2" Height="219.129" Margin="-18.323,-78.57,0,-78.559"  Width="65.087" VerticalAlignment="Top" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" FontFamily="Global User Interface" Visibility="Collapsed">
+                <ListBox.RenderTransform>
+                    <CompositeTransform Rotation="-90.378"/>
+                </ListBox.RenderTransform>
+                <Button x:Name="i31" Background="#FFEA4E4E" Content="DC" Click="i31_Click"  Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i32" Background="#FFEA4E4E" Content="0" Click="i32_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i33" Background="#FFEA4E4E" Content="1" Click="i33_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i34" Background="#FFEA4E4E" Content="2" Click="i34_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i35" Background="#FFEA4E4E" Content="3" Click="i35_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i36" Background="#FFEA4E4E" Content="4" Click="i36_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i37" Background="#FFEA4E4E" Content="5" Click="i37_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i38" Background="#FFEA4E4E" Content="6" Click="i38_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i39" Background="#FFEA4E4E" Content="7" Click="i39_Click" Foreground="#FF1D0505" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i40" Background="#FFEA5050" Content="8" Click="i40_Click" Foreground="#FF0F0E0E" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i41" Background="#FFEA4E4E" Content="9" Click="i41_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i42" Background="#FFEA4E4E" Content="10" Click="i42_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i43" Background="#FFEA5050" Content="11" Click="i43_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i44" Background="#FFEA4E4E" Content="12" Click="i44_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i45" Background="#FFEA4E4E" Content="13" Click="i45_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+            </ListBox>
+        </Grid>
+        <Grid Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,3.5,1.667,2.5">
+
+            <ListBox x:Name="listBox_1" Height="186.952" Width="65.354" VerticalAlignment="Top" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Margin="58.306,-63.295,0,-63.657" FontFamily="Global User Interface" Visibility="Collapsed">
+                <ListBox.RenderTransform>
+                    <CompositeTransform Rotation="-90.378"/>
+                </ListBox.RenderTransform>
+                <Button x:Name="i46" Background="#FFEA4E4E" Content="DC" Click="i46_Click" Width="90" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i47" Background="#FFEA4E4E" Content="0" Click="i47_Click" HorizontalAlignment="Center" Margin="0,20,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center">
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i48" Background="#FFEA4E4E" Content="1" Click="i48_Click" HorizontalAlignment="Center" Margin="0,20,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center">
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+
+                <Button x:Name="i49" Background="#FFEA4E4E" Content="2" Click="i49_Click" HorizontalAlignment="Center" Margin="0,20,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center">
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i50" Background="#FFEA4E4E" Content="3" Click="i50_Click" HorizontalAlignment="Center" Margin="0,20,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center">
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i51" Background="#FFEA4E4E" Content="4" Click="i51_Click" HorizontalAlignment="Center" Margin="0,20,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center">
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i52" Background="#FFEA4E4E" Content="5" Click="i52_Click" HorizontalAlignment="Center" Margin="0,20,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center">
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i53" Background="#FFEA4E4E" Content="6" Click="i53_Click" HorizontalAlignment="Center" Margin="0,20,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center">
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i54" Background="#FFEA4E4E" Content="7" Click="i54_Click" Foreground="#FF1D0505" HorizontalAlignment="Center" Margin="0,20,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center">
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i55" Background="#FFEA5050" Content="8" Click="i55_Click" Foreground="#FF0F0E0E" HorizontalAlignment="Center" Margin="0,20,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center">
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i56" Background="#FFEA4E4E" Content="9" Click="i56_Click" HorizontalAlignment="Center" Margin="0,20,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center">
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i57" Background="#FFEA4E4E" Content="10" Click="i57_Click" HorizontalAlignment="Center" Margin="0,20,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center">
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i58" Background="#FFEA5050" Content="11" Click="i58_Click" HorizontalAlignment="Center" Margin="0,20,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center">
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i59" Background="#FFEA4E4E" Content="12" Click="i59_Click" HorizontalAlignment="Center" Margin="0,20,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center">
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+                <Button x:Name="i60" Background="#FFEA4E4E" Content="13" Click="i60_Click" HorizontalAlignment="Center" Margin="0,20,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center">
+                    <Button.RenderTransform>
+                        <CompositeTransform Rotation="90"/>
+                    </Button.RenderTransform>
+                </Button>
+            </ListBox>
+        </Grid>
+        <Button x:Name="button1" Content="Show Table" HorizontalAlignment="Left" Margin="3.333,7.333,0,0" VerticalAlignment="Top" Click="button1_Click" Height="58" Grid.Row="12" Grid.Column="5" Width="117" Grid.RowSpan="2" Background="#FF0F0F0F"/>
+        <Button x:Name="button2" Content="Start Round" HorizontalAlignment="Left" Margin="5,7.333,0,0" VerticalAlignment="Top" Click="button2_Click" Grid.Row="12" Grid.ColumnSpan="3" Height="58" Width="148" Grid.RowSpan="2" Background="#FF0F0E0E"/>
+        <Button x:Name="button3" Content="Delete Last" HorizontalAlignment="Left" Margin="3.667,7.333,0,0" VerticalAlignment="Top" Click="button3_Click" Grid.Row="12" Grid.Column="3" Grid.ColumnSpan="2" Height="58" Width="115" Grid.RowSpan="2" Background="Black"/>
+        <Grid Grid.Row="2" Grid.Column="2"    >
+            <Image x:Name="image_Call1" Source="Assets/edit.png" Margin="0" PointerPressed="image_Copy_PointerPressed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="5" >
+
+            <Image x:Name="image_Call2" Source="Assets/edit.png" Margin="0" PointerPressed="image_Copy_1PointerPressed" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="3" Grid.Column="5">
+            <Image x:Name="image_Lammat2" Source="Assets/edit.png" Margin="0" PointerPressed="image_Copy_1PointerPressed" Grid.Row="2" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed"/>
+        </Grid>
+        <Grid Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="2" >
+            <Image x:Name="image_Call3" Source="Assets/edit.png" Margin="0" PointerPressed="image_Copy_2PointerPressed" Grid.Row="9" Grid.ColumnSpan="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        </Grid>
+        <Grid Grid.Row="10" Grid.Column="2" >
+            <Image x:Name="image_Lammat3" Source="Assets/edit.png" Margin="0" PointerPressed="image_Copy_2PointerPressed" HorizontalAlignment="Left" Visibility="Collapsed"/>
+        </Grid>
+        <Grid Grid.Row="10" Grid.Column="5" >
+            <Image x:Name="image_Call4" Source="Assets/edit.png"  PointerPressed="image_Copy_3PointerPressed" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed"/>
+        </Grid>
+        <Grid Grid.Row="9" Grid.Column="5" >
+            <Image x:Name="image_Lammat4" Source="Assets/edit.png" Margin="0" PointerPressed="image_Copy_3PointerPressed" Grid.Row="9" Grid.Column="4" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+        <TextBlock x:Name="gamest" HorizontalAlignment="Left" Margin="5,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="1.019,3.333" Height="44" Width="182" FontSize="21.333" Visibility="Collapsed" Grid.ColumnSpan="4"/>
+        <TextBlock x:Name="gamenumber" HorizontalAlignment="Left" Margin="9.333,0,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="187" FontSize="21.333" Height="44" Visibility="Collapsed" Grid.ColumnSpan="2" Grid.Column="4"/>
+        <Image x:Name="image_call1" HorizontalAlignment="Left" Height="45" VerticalAlignment="Top" Width="42" Margin="77,0.333,0,0" Source="Assets/c-400.png" RenderTransformOrigin="1.225,0.583" Grid.ColumnSpan="3" Grid.Row="1" Visibility="Collapsed"/>
+        <Image x:Name="image_call2" HorizontalAlignment="Left" Height="45" VerticalAlignment="Top" Width="35" Margin="14.333,4.333,0,0" Source="Assets/c-400.png" RenderTransformOrigin="1.225,0.583" Grid.Row="1" Grid.Column="5" Visibility="Collapsed"/>
+        <Image x:Name="image_call4" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="35" Margin="0.333,11.167,0,0" Source="Assets/c-400.png" RenderTransformOrigin="1.225,0.583" Grid.Row="8" Grid.Column="5" Visibility="Collapsed"/>
+        <Image x:Name="image_call3" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="35" Margin="9.333,7.167,0,0" Source="Assets/c-400.png" RenderTransformOrigin="1.225,0.583" Grid.Row="8" Visibility="Collapsed" Grid.Column="2"/>
+        <Canvas x:Name="wh_Call" HorizontalAlignment="Left" Height="587" Margin="-5,54,0,0" VerticalAlignment="Top" Width="405" Background="Black" Visibility="Collapsed" Grid.RowSpan="12" Grid.ColumnSpan="6">
+            <TextBlock x:Name="textBlock" Canvas.Left="10" TextWrapping="Wrap" Text="Choose Who is Call ?" Canvas.Top="10" Height="86" Width="337" FontSize="32"/>
+            <RadioButton x:Name="wh_Call2" Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="199" RenderTransformOrigin="-1.262,2.512" FontSize="32" Width="243"/>
+            <RadioButton x:Name="wh_Call3" Content="CheckBox" Canvas.Left="10" Canvas.Top="297" FontSize="32" Width="243"/>
+            <RadioButton x:Name="wh_Call1" Content="CheckBox" Canvas.Left="10" Canvas.Top="112" Width="243" Height="72" FontSize="32"/>
+            <RadioButton x:Name="wh_Call4" Content="CheckBox" Canvas.Left="10" Canvas.Top="387" FontSize="32" Height="70" Width="243"/>
+            <Button x:Name="wh_Call_done" Content="Done" Canvas.Left="144" Canvas.Top="492" Width="159" Height="67" FontSize="32" Click="wh_Call_done_Click"/>
+
+        </Canvas>
+        <FlipView x:Name="flipView" Margin="36.333,1.333,10.667,2.333" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Visibility="Collapsed">
+            <FlipView.Background>
+                <ImageBrush Stretch="Fill"/>
+            </FlipView.Background>
+            <Image  Source="Assets/2222.png" Margin="0,-5,-5,-5.5" RenderTransformOrigin="0.425,-0.493" />
+            <Image  Source="Assets/cards-spade.png"/>
+            <Image  Source="Assets/he.png" />
+            <Image  Source="Assets/c-d.png" />
+            <Image  Source="Assets/cards-club.png" />
+            <Image  Source="Assets/2222.png" Margin="0,-5,-5.167,-5" RenderTransformOrigin="0.425,-0.493" />
+        </FlipView>
+        <Grid Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Margin="0.333,0.333,42.667,0.833" >
+
+            <Image x:Name="image_Lammat1" Source="Assets/edit.png" Margin="0" PointerPressed="image_Copy_PointerPressed" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" Grid.ColumnSpan="2" HorizontalAlignment="Center" Visibility="Collapsed"/>
+        </Grid>
+
+
+
+
+    </Grid>
+</Page>
